@@ -564,7 +564,6 @@ document.addEventListener('DOMContentLoaded', () => {
             { url: 'index.html', title: 'Homepage', content: 'DevOps Engineer Training Courses Labs, Linux, Docker, Kubernetes, AWS, Terraform Htet Oo Wai Yan' },
             { url: 'about.html', title: 'About Us', content: 'Team Mission Htet Oo Wai Yan Htet Oo Wai Yan David Smith' },
             { url: 'authors.html', title: 'Our Authors', content: 'Htet Oo Wai Yan Htet Oo Wai Yan Jane Doe' },
-            { url: 'pricing.html', title: 'Pricing', content: 'Starter Pro Bootcamp Plans, course package options' },
             { url: 'blog.html', title: 'Blog', content: 'Articles tutorials news DevOps, Kubernetes, Linux, Terraform, Docker, CI/CD, Monitoring' },
             { url: 'lsa.html', title: 'Linux System Administration', content: 'Linux administration users services networking security LVM firewalld' },
             { url: 'docker.html', title: 'Docker Administration', content: 'Container management images networking production Docker Compose' },
