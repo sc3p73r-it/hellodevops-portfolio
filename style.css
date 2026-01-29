@@ -30,6 +30,10 @@ body {
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 /* Add padding-top to body only on index.html which has the fixed-top navbar */
 body.home-page {
   padding-top: 56px;
@@ -240,4 +244,109 @@ body.light-mode .navbar-dark .navbar-nav .nav-link {
 
 footer a.text-white-50:hover {
   color: var(--text-color) !important;
+}
+
+/* Preloader */
+#preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--bg-color);
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+#preloader.fade-out {
+  opacity: 0;
+  visibility: hidden;
+}
+
+#preloader .spinner {
+  width: 50px;
+  height: 50px;
+  border: 5px solid var(--text-color-muted);
+  border-top-color: #ffc107;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Share buttons */
+.share-buttons a, .share-buttons button {
+    color: var(--text-color-muted);
+    border-color: var(--border-color);
+}
+
+.share-buttons a:hover, .share-buttons button:hover {
+    color: var(--text-color);
+    background-color: var(--bg-color-lighter);
+    border-color: var(--border-color);
+}
+
+/* Comments Section */
+#comments-container .d-flex {
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 1.5rem;
+}
+
+#comments-container .d-flex:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+/* Table of Contents */
+#toc-container .toc-link {
+    color: var(--text-color-muted);
+    transition: color 0.2s ease-in-out;
+    display: block;
+    padding: 0.25rem 0;
+    text-decoration: none;
+}
+
+#toc-container .toc-link:hover {
+    color: var(--text-color) !important;
+}
+
+#toc-container .toc-link.active {
+    color: #ffc107 !important;
+    font-weight: 600;
+    border-left: 3px solid #ffc107;
+    padding-left: 0.5rem;
+    background-color: rgba(255, 193, 7, 0.1);
+}
+
+/* Pagination Customization */
+.pagination .page-link {
+    background-color: var(--bg-color-lighter);
+    border-color: var(--border-color);
+    color: var(--text-color);
+    transition: all 0.3s ease;
+}
+
+.pagination .page-link:hover {
+    background-color: var(--bg-color);
+    color: #ffc107;
+    border-color: #ffc107;
+}
+
+.pagination .page-item.active .page-link {
+    background-color: #ffc107;
+    border-color: #ffc107;
+    color: #111827; /* Dark text for contrast */
+}
+
+.pagination .page-item.disabled .page-link {
+    background-color: var(--bg-color);
+    border-color: var(--border-color);
+    color: var(--text-color-muted);
 }

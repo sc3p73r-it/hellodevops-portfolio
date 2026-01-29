@@ -10,6 +10,11 @@
 </head>
 <body class="home-page">
 
+<!-- Preloader -->
+<div id="preloader">
+  <div class="spinner"></div>
+</div>
+
 <nav class="navbar navbar-dark fixed-top navbar-on-scroll">
   <div class="container">
     <a class="navbar-brand fw-bold" href="index.html">← Hello<span class="text-warning">DevOps</span></a>
@@ -28,6 +33,22 @@
       <div class="col-md-8">
         <h1 class="display-5 fw-bold">Why Kubernetes is the King of Orchestration</h1>
         <p class="blog-post-meta">Posted on October 26, 2023 by Michael Chen</p>
+
+        <div class="share-buttons d-flex align-items-center mt-3">
+          <span class="me-3 text-white-50 small">Share:</span>
+          <a href="#" class="btn btn-outline-secondary btn-sm me-2" id="share-twitter" title="Share on Twitter"><i class="bi bi-twitter-x"></i></a>
+          <a href="#" class="btn btn-outline-secondary btn-sm me-2" id="share-linkedin" title="Share on LinkedIn"><i class="bi bi-linkedin"></i></a>
+          <button class="btn btn-outline-secondary btn-sm" id="copy-link-btn" title="Copy link"><i class="bi bi-link-45deg"></i> <span id="copy-link-text">Copy Link</span></button>
+        </div>
+
+        <div class="card bg-lighter my-4" id="toc-container">
+            <div class="card-body">
+                <h5 class="card-title text-warning">Table of Contents</h5>
+                <ul class="list-unstyled mb-0" id="toc-list">
+                    <!-- Links will be generated here by scripts.js -->
+                </ul>
+            </div>
+        </div>
 
         <article class="blog-post-content mt-4">
           <p>In the world of containerization, Docker started a revolution. But as applications grew in complexity, managing hundreds or thousands of containers became a significant challenge. This is where container orchestration platforms step in, and for the past several years, one name has dominated the conversation: <strong>Kubernetes</strong>.</p>
@@ -67,6 +88,70 @@ spec:
         - containerPort: 80</code></pre>
           <p>This simple file tells Kubernetes to ensure that 3 replicas of the Nginx container are always running. It's a powerful concept that forms the foundation of modern, resilient application deployment.</p>
         </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Related Posts -->
+<section class="py-5 bg-lighter fade-in-section">
+  <div class="container">
+    <h3 class="fw-bold mb-4 text-center">Related Posts</h3>
+    <div class="row g-4 justify-content-center">
+      <div class="col-md-6">
+        <div class="card h-100 shadow">
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title text-warning">5 Essential Linux Commands for a DevOps Engineer</h5>
+            <p class="card-text text-white-50">Master these five commands to boost your productivity and efficiency when working on any Linux-based system.</p>
+            <a href="blog-post-1.html" class="btn btn-outline-warning mt-auto">Read More</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="card h-100 shadow">
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title text-warning">Infrastructure as Code: Terraform vs. CloudFormation</h5>
+            <p class="card-text text-white-50">An in-depth comparison between the two leading IaC tools to help you choose the right one for your next project.</p>
+            <a href="blog-post-1.html" class="btn btn-outline-warning mt-auto">Read More</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Comments Section -->
+<section class="py-5 fade-in-section">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+        <h3 class="fw-bold mb-4">Leave a Comment</h3>
+        <form id="comment-form">
+          <div class="mb-3">
+            <label for="comment-name" class="form-label">Name</label>
+            <input type="text" class="form-control" id="comment-name" required>
+          </div>
+          <div class="mb-3">
+            <label for="comment-text" class="form-label">Comment</label>
+            <textarea class="form-control" id="comment-text" rows="4" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-warning">Submit Comment</button>
+        </form>
+
+        <hr class="my-5" style="border-color: var(--border-color);">
+
+        <h4 class="fw-bold mb-4">Comments (<span id="comment-count">1</span>)</h4>
+        <div id="comments-container">
+          <!-- Sample Comment -->
+          <div class="d-flex mb-4">
+            <img src="https://i.pravatar.cc/150?u=jane" class="rounded-circle me-3" alt="Jane Doe" width="50" height="50">
+            <div>
+              <h6 class="fw-bold mb-1">Jane Doe</h6>
+              <p class="text-white-50 mb-1">Great article! This really clarifies the core concepts of Kubernetes. Looking forward to more posts like this.</p>
+              <small class="text-white-50">October 26, 2023</small>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
