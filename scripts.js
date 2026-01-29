@@ -166,6 +166,20 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // --- Reading Time (blog-post-1.html) ---
+    const readingTimeEl = document.getElementById('reading-time');
+    if (readingTimeEl) {
+        const articleContent = document.querySelector('.blog-post-content');
+        if (articleContent) {
+            const text = articleContent.innerText;
+            const wordsPerMinute = 225;
+            const wordCount = text.trim().split(/\s+/).length;
+            const time = Math.ceil(wordCount / wordsPerMinute);
+            readingTimeEl.innerText = `${time} min read`;
+        }
+    }
+
+
     // --- Table of Contents (blog-post-1.html) ---
     const tocContainer = document.getElementById('toc-container');
     if (tocContainer) {
@@ -216,6 +230,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (blogPageContainer) {
         const searchInput = document.getElementById('blog-search');
         const paginationContainer = document.getElementById('pagination-container');
+        const tagFilterContainer = document.getElementById('tag-filter-container');
         const allPosts = Array.from(blogPageContainer.querySelectorAll('.blog-post-item'));
         const postsPerPage = 3; // Number of posts per page
         let currentPage = 1;
@@ -271,11 +286,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const updatePostVisibility = () => {
             const searchTerm = searchInput.value.toLowerCase();
+            const activeTag = tagFilterContainer.querySelector('.tag-filter-btn.active')?.dataset.tag || 'all';
             
             // Filter posts based on search
             const filteredPosts = allPosts.filter(post => {
                 const title = post.querySelector('.card-title').textContent.toLowerCase();
-                return title.includes(searchTerm);
+                const tags = post.dataset.tags ? post.dataset.tags.split(',') : [];
+                const matchesSearch = title.includes(searchTerm);
+                const matchesTag = activeTag === 'all' || tags.includes(activeTag);
+                return matchesSearch && matchesTag;
             });
 
             const totalPages = Math.ceil(filteredPosts.length / postsPerPage);
@@ -299,12 +318,41 @@ document.addEventListener('DOMContentLoaded', () => {
             renderPagination(totalPages);
         };
 
+        const setupTagFilters = () => {
+            const tags = new Set();
+            allPosts.forEach(post => {
+                post.dataset.tags?.split(',').forEach(tag => tags.add(tag.trim()));
+            });
+
+            tagFilterContainer.innerHTML = `<button class="btn btn-sm tag-filter-btn active me-2 mb-2" data-tag="all">All</button>`;
+            
+            [...tags].sort().forEach(tag => {
+                const btn = document.createElement('button');
+                btn.className = 'btn btn-sm tag-filter-btn me-2 mb-2';
+                btn.dataset.tag = tag;
+                btn.innerText = tag;
+                tagFilterContainer.appendChild(btn);
+            });
+
+            tagFilterContainer.addEventListener('click', (e) => {
+                if (e.target.classList.contains('tag-filter-btn')) {
+                    tagFilterContainer.querySelector('.active').classList.remove('active');
+                    e.target.classList.add('active');
+                    currentPage = 1;
+                    updatePostVisibility();
+                }
+            });
+        };
+
         if (searchInput) {
             searchInput.addEventListener('keyup', () => {
                 currentPage = 1; // Reset to page 1 on new search
                 updatePostVisibility();
             });
         }
+
+        // Initial setup
+        setupTagFilters();
 
         // Initial setup
         updatePostVisibility();

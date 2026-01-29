@@ -37,66 +37,94 @@
 <section class="py-5 fade-in-section">
   <div class="container">
     <div class="row justify-content-center mb-5">
+      <div class="col-md-8 text-center mb-4" id="tag-filter-container">
+        <!-- Tags will be generated here by scripts.js -->
+      </div>
       <div class="col-md-8">
         <input type="text" id="blog-search" class="form-control form-control-lg" placeholder="Search articles...">
       </div>
     </div>
     <div class="row g-4" id="blog-posts-container">
       <!-- Blog Post 1 -->
-      <div class="col-md-6 col-lg-4 blog-post-item">
+      <div class="col-md-6 col-lg-4 blog-post-item" data-tags="kubernetes,orchestration">
         <div class="card h-100 shadow">
           <div class="card-body d-flex flex-column">
             <h5 class="card-title text-warning">Why Kubernetes is the King of Orchestration</h5>
+            <div class="mb-2">
+              <span class="badge tag-badge me-1">kubernetes</span>
+              <span class="badge tag-badge me-1">orchestration</span>
+            </div>
             <p class="card-text text-white-50">A deep dive into the architecture and benefits of Kubernetes that make it the de-facto standard for container orchestration.</p>
             <a href="blog-post-1.html" class="btn btn-outline-warning mt-auto">Read More</a>
           </div>
         </div>
       </div>
       <!-- Blog Post 2 -->
-      <div class="col-md-6 col-lg-4 blog-post-item">
+      <div class="col-md-6 col-lg-4 blog-post-item" data-tags="linux,cli">
         <div class="card h-100 shadow">
           <div class="card-body d-flex flex-column">
             <h5 class="card-title text-warning">5 Essential Linux Commands for a DevOps Engineer</h5>
+            <div class="mb-2">
+              <span class="badge tag-badge me-1">linux</span>
+              <span class="badge tag-badge me-1">cli</span>
+            </div>
             <p class="card-text text-white-50">Master these five commands to boost your productivity and efficiency when working on any Linux-based system.</p>
             <a href="blog-post-1.html" class="btn btn-outline-warning mt-auto">Read More</a>
           </div>
         </div>
       </div>
       <!-- Blog Post 3 -->
-      <div class="col-md-6 col-lg-4 blog-post-item">
+      <div class="col-md-6 col-lg-4 blog-post-item" data-tags="iac,terraform,cloud">
         <div class="card h-100 shadow">
           <div class="card-body d-flex flex-column">
             <h5 class="card-title text-warning">Infrastructure as Code: Terraform vs. CloudFormation</h5>
+            <div class="mb-2">
+              <span class="badge tag-badge me-1">iac</span>
+              <span class="badge tag-badge me-1">terraform</span>
+              <span class="badge tag-badge me-1">cloud</span>
+            </div>
             <p class="card-text text-white-50">An in-depth comparison between the two leading IaC tools to help you choose the right one for your next project.</p>
             <a href="blog-post-1.html" class="btn btn-outline-warning mt-auto">Read More</a>
           </div>
         </div>
       </div>
       <!-- Blog Post 4 -->
-      <div class="col-md-6 col-lg-4 blog-post-item">
+      <div class="col-md-6 col-lg-4 blog-post-item" data-tags="docker,containers">
         <div class="card h-100 shadow">
           <div class="card-body d-flex flex-column">
             <h5 class="card-title text-warning">Getting Started with Docker Compose</h5>
+            <div class="mb-2">
+              <span class="badge tag-badge me-1">docker</span>
+              <span class="badge tag-badge me-1">containers</span>
+            </div>
             <p class="card-text text-white-50">Learn how to define and run multi-container Docker applications with a single command.</p>
             <a href="blog-post-1.html" class="btn btn-outline-warning mt-auto">Read More</a>
           </div>
         </div>
       </div>
       <!-- Blog Post 5 -->
-      <div class="col-md-6 col-lg-4 blog-post-item">
+      <div class="col-md-6 col-lg-4 blog-post-item" data-tags="cicd,devops">
         <div class="card h-100 shadow">
           <div class="card-body d-flex flex-column">
             <h5 class="card-title text-warning">CI/CD Pipelines Explained</h5>
+            <div class="mb-2">
+              <span class="badge tag-badge me-1">cicd</span>
+              <span class="badge tag-badge me-1">devops</span>
+            </div>
             <p class="card-text text-white-50">An introduction to Continuous Integration and Continuous Deployment concepts and tools.</p>
             <a href="blog-post-1.html" class="btn btn-outline-warning mt-auto">Read More</a>
           </div>
         </div>
       </div>
       <!-- Blog Post 6 -->
-      <div class="col-md-6 col-lg-4 blog-post-item">
+      <div class="col-md-6 col-lg-4 blog-post-item" data-tags="monitoring,prometheus">
         <div class="card h-100 shadow">
           <div class="card-body d-flex flex-column">
             <h5 class="card-title text-warning">Monitoring Your Applications with Prometheus</h5>
+            <div class="mb-2">
+              <span class="badge tag-badge me-1">monitoring</span>
+              <span class="badge tag-badge me-1">prometheus</span>
+            </div>
             <p class="card-text text-white-50">A practical guide to setting up Prometheus and Grafana for robust application monitoring.</p>
             <a href="blog-post-1.html" class="btn btn-outline-warning mt-auto">Read More</a>
           </div>
