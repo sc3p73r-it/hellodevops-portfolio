@@ -12,35 +12,59 @@
 
   <style>
     body {
-      scroll-behavior: smooth;
+      background-color: #111827; /* A modern dark gray/blue */
+      color: #f8f9fa;
+      padding-top: 56px; /* Offset for fixed navbar */
     }
-    .hero {
-      background: linear-gradient(135deg, #0d6efd, #6610f2);
-      color: white;
-      padding: 120px 0;
+    .gradient-text {
+      background: linear-gradient(90deg, #ffc107, #fd7e14);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-fill-color: transparent;
     }
-    .hero h1 span {
-      color: #ffc107;
+    .card {
+      background-color: #1f2937; /* Slightly lighter dark */
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
     .card:hover {
-      transform: translateY(-6px);
-      transition: 0.3s;
+      transform: translateY(-8px);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
     }
     .section-padding {
-      padding: 80px 0;
+      padding: 100px 0;
+    }
+    .navbar {
+      background-color: rgba(17, 24, 39, 0.8) !important; /* Same as body, but with transparency */
+      backdrop-filter: blur(10px);
     }
     footer {
-      background: #0b132b;
-      color: #bbb;
+      background-color: #111827;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .form-control {
+        background-color: #1f2937;
+        border-color: #4b5563;
+        color: #f8f9fa;
+    }
+    .form-control:focus {
+        background-color: #1f2937;
+        border-color: #ffc107;
+        color: #f8f9fa;
+        box-shadow: 0 0 0 0.25rem rgba(255, 193, 7, 0.25);
+    }
+    .form-control::placeholder {
+        color: #6b7280;
     }
   </style>
 </head>
-<body>
+<body class="bg-dark text-light">
 
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
   <div class="container">
-    <a class="navbar-brand fw-bold" href="#">Hello<span class="text-warning">DevOps</span></a>
+    <a class="navbar-brand fw-bold" href="index.html">Hello<span class="text-warning">DevOps</span></a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -56,85 +80,82 @@
 </nav>
 
 <!-- Hero Section -->
-<section class="hero text-center">
+<section class="text-center section-padding">
   <div class="container">
-    <h1 class="display-4 fw-bold">Become a <span>DevOps Engineer</span></h1>
-    <p class="lead mt-3">Hands-on DevOps Training with Real‑World Projects</p>
-    <div class="mt-4">
-      <a href="#courses" class="btn btn-warning btn-lg me-2">View Courses</a>
-      <a href="#contact" class="btn btn-outline-light btn-lg">Free Demo</a>
+    <h1 class="display-3 fw-bolder">Become a <span class="gradient-text">DevOps Engineer</span></h1>
+    <p class="lead text-white-50 my-4">Hands-on DevOps Training with Real‑World Projects to launch your career.</p>
+    <div class="mt-5">
+      <a href="#courses" class="btn btn-warning btn-lg me-2 px-4 rounded-pill">View Courses</a>
+      <a href="#contact" class="btn btn-outline-warning btn-lg px-4 rounded-pill">Free Demo</a>
     </div>
   </div>
 </section>
 
 <!-- Courses -->
-<section id="courses" class="section-padding">
+<section id="courses" class="section-padding" style="background-color: #1f2937;">
   <div class="container">
     <div class="text-center mb-5">
       <h2 class="fw-bold">Our DevOps Courses</h2>
-      <p class="text-muted">Industry‑focused curriculum</p>
+      <p class="text-white-50">Industry‑focused curriculum</p>
     </div>
       
     <div class="row g-4">
       <div class="col-md-4">
         <div class="card h-100 shadow">
-          <div class="card-body">
-                 <h5 class="card-title">Linux System Administration</h5>
-                 <p class="card-text">Master Linux administration, users, services, networking, and security.</p>
-                 <button class="btn btn-primary w-100" onclick="window.location.href='lsa.html'">Enroll</button>
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title">Linux System Administration</h5>
+            <p class="card-text text-white-50">Master Linux administration, users, services, networking, and security.</p>
+            <a href="lsa.html" class="btn btn-outline-warning mt-auto">Learn More</a>
           </div>
         </div>
       </div>
-
 
       <div class="col-md-4">
         <div class="card h-100 shadow">
-          <div class="card-body">
-                 <h5 class="card-title">Docker Administration</h5>
-                 <p class="card-text">Container management, images, networking, and production Docker.</p>
-                 <button class="btn btn-primary w-100" onclick="window.location.href='docker.html'">Enroll</button>
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title">Docker Administration</h5>
+            <p class="card-text text-white-50">Container management, images, networking, and production Docker.</p>
+            <a href="docker.html" class="btn btn-outline-warning mt-auto">Learn More</a>
           </div>
         </div>
       </div>
-
-         <div class="col-md-4">
-        <div class="card h-100 shadow">
-          <div class="card-body">
-                 <h5 class="card-title">Terraform Beginner </h5>
-                 <p class="card-text">Infrastructure as Code</p>
-                 <button class="btn btn-primary w-100" onclick="window.location.href='terraform.html'">Enroll</button>
-          </div>
-        </div>
-      </div>
-
-
 
       <div class="col-md-4">
         <div class="card h-100 shadow">
-          <div class="card-body">
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title">Terraform Beginner </h5>
+            <p class="card-text text-white-50">Infrastructure as Code</p>
+            <a href="terraform.html" class="btn btn-outline-warning mt-auto">Learn More</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card h-100 shadow">
+          <div class="card-body d-flex flex-column">
             <h5 class="card-title">DevOps Fundamentals</h5>
-            <p class="card-text">Linux, Git, CI/CD basics, Docker introduction.</p>
-            <button class="btn btn-primary w-100" onclick="window.location.href='devops-fundamentals.html'">Enroll</button>
+            <p class="card-text text-white-50">Linux, Git, CI/CD basics, Docker introduction.</p>
+            <a href="devops-fundamentals.html" class="btn btn-outline-warning mt-auto">Learn More</a>
           </div>
         </div>
       </div>
 
       <div class="col-md-4">
         <div class="card h-100 shadow">
-          <div class="card-body">
+          <div class="card-body d-flex flex-column">
             <h5 class="card-title">AWS DevOps</h5>
-            <p class="card-text">EC2, VPC, IAM, CI/CD, EKS, Terraform.</p>
-            <button class="btn btn-primary w-100" onclick="enroll('AWS DevOps')">Enroll</button>
+            <p class="card-text text-white-50">EC2, VPC, IAM, CI/CD, EKS, Terraform.</p>
+            <a href="#" class="btn btn-warning mt-auto" onclick="enroll('AWS DevOps')">Enroll Now</a>
           </div>
         </div>
       </div>
 
       <div class="col-md-4">
         <div class="card h-100 shadow">
-          <div class="card-body">
+          <div class="card-body d-flex flex-column">
             <h5 class="card-title">Kubernetes Mastery</h5>
-            <p class="card-text">Docker, K8s, Helm, Monitoring, Production setups.</p>
-            <button class="btn btn-primary w-100" onclick="enroll('Kubernetes Mastery')">Enroll</button>
+            <p class="card-text text-white-50">Docker, K8s, Helm, Monitoring, Production setups.</p>
+            <a href="#" class="btn btn-warning mt-auto" onclick="enroll('Kubernetes Mastery')">Enroll Now</a>
           </div>
         </div>
       </div>
@@ -143,35 +164,35 @@
 </section>
 
 <!-- Features -->
-<section id="features" class="bg-light section-padding">
+<section id="features" class="section-padding">
   <div class="container">
     <div class="row text-center">
       <div class="col-md-3">
-        <i class="bi bi-laptop fs-1 text-primary"></i>
+        <i class="bi bi-laptop fs-1 text-warning"></i>
         <h5 class="mt-3">Hands‑On Labs</h5>
-        <p>Real DevOps tools and projects</p>
+        <p class="text-white-50">Real DevOps tools and projects</p>
       </div>
       <div class="col-md-3">
-        <i class="bi bi-cloud-check fs-1 text-primary"></i>
+        <i class="bi bi-cloud-check fs-1 text-warning"></i>
         <h5 class="mt-3">Cloud Focused</h5>
-        <p>AWS, Azure & Kubernetes</p>
+        <p class="text-white-50">AWS, Azure & Kubernetes</p>
       </div>
       <div class="col-md-3">
-        <i class="bi bi-person-video3 fs-1 text-primary"></i>
+        <i class="bi bi-person-video3 fs-1 text-warning"></i>
         <h5 class="mt-3">Expert Trainers</h5>
-        <p>Industry professionals</p>
+        <p class="text-white-50">Industry professionals</p>
       </div>
       <div class="col-md-3">
-        <i class="bi bi-briefcase fs-1 text-primary"></i>
+        <i class="bi bi-briefcase fs-1 text-warning"></i>
         <h5 class="mt-3">Job Ready</h5>
-        <p>Interview & resume support</p>
+        <p class="text-white-50">Interview & resume support</p>
       </div>
     </div>
   </div>
 </section>
 
 <!-- Contact -->
-<section id="contact" class="section-padding">
+<section id="contact" class="section-padding" style="background-color: #1f2937;">
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-md-6">
@@ -186,7 +207,7 @@
           <div class="mb-3">
             <textarea class="form-control" rows="4" placeholder="Your Message"></textarea>
           </div>
-          <button class="btn btn-primary w-100">Send Message</button>
+          <button class="btn btn-warning w-100">Send Message</button>
         </form>
       </div>
     </div>
@@ -196,7 +217,7 @@
 <!-- Footer -->
 <footer class="text-center py-4">
   <div class="container">
-    <p class="mb-0">© 2026 HelloDevOps. All Rights Reserved.</p>
+    <p class="mb-0 text-white-50">© 2026 HelloDevOps. All Rights Reserved.</p>
   </div>
 </footer>
 
