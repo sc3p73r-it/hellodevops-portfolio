@@ -138,6 +138,10 @@ footer {
     color: var(--text-color-muted);
 }
 
+.blog-post-meta a.text-white-50:hover {
+    text-decoration: underline !important;
+}
+
 .blog-post-content p {
     color: var(--text-color-muted-light);
     line-height: 1.7;
@@ -417,4 +421,14 @@ footer a.text-white-50:hover {
     height: 100%;
     background: #ffc107;
     width: 0%;
+}
+
+/* Tool Icons Hover Effect */
+.tool-icons i {
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.tool-icons i:hover {
+    color: #ffc107 !important;
+    transform: scale(1.1);
 }

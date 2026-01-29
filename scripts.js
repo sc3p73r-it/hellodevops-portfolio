@@ -231,6 +231,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const searchInput = document.getElementById('blog-search');
         const paginationContainer = document.getElementById('pagination-container');
         const tagFilterContainer = document.getElementById('tag-filter-container');
+        const authorFilterSelect = document.getElementById('author-filter-select');
+        const sortSelect = document.getElementById('sort-by-select');
         const allPosts = Array.from(blogPageContainer.querySelectorAll('.blog-post-item'));
         const postsPerPage = 3; // Number of posts per page
         let currentPage = 1;
@@ -287,14 +289,29 @@ document.addEventListener('DOMContentLoaded', () => {
         const updatePostVisibility = () => {
             const searchTerm = searchInput.value.toLowerCase();
             const activeTag = tagFilterContainer.querySelector('.tag-filter-btn.active')?.dataset.tag || 'all';
+            const selectedAuthor = authorFilterSelect.value;
+            const sortOrder = sortSelect.value;
             
-            // Filter posts based on search
-            const filteredPosts = allPosts.filter(post => {
+            // 1. Sort posts
+            const sortedPosts = [...allPosts].sort((a, b) => {
+                const dateA = new Date(a.dataset.date);
+                const dateB = new Date(b.dataset.date);
+                if (sortOrder === 'newest') {
+                    return dateB - dateA;
+                } else {
+                    return dateA - dateB;
+                }
+            });
+
+            // 2. Filter posts
+            const filteredPosts = sortedPosts.filter(post => {
                 const title = post.querySelector('.card-title').textContent.toLowerCase();
                 const tags = post.dataset.tags ? post.dataset.tags.split(',') : [];
+                const author = post.dataset.author || '';
                 const matchesSearch = title.includes(searchTerm);
                 const matchesTag = activeTag === 'all' || tags.includes(activeTag);
-                return matchesSearch && matchesTag;
+                const matchesAuthor = selectedAuthor === 'all' || author === selectedAuthor;
+                return matchesSearch && matchesTag && matchesAuthor;
             });
 
             const totalPages = Math.ceil(filteredPosts.length / postsPerPage);
@@ -324,7 +341,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 post.dataset.tags?.split(',').forEach(tag => tags.add(tag.trim()));
             });
 
-            tagFilterContainer.innerHTML = `<button class="btn btn-sm tag-filter-btn active me-2 mb-2" data-tag="all">All</button>`;
+            tagFilterContainer.innerHTML = `<button class="btn btn-sm tag-filter-btn active me-2 mb-2" data-tag="all">All Tags</button>`;
             
             [...tags].sort().forEach(tag => {
                 const btn = document.createElement('button');
@@ -344,6 +361,28 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         };
 
+        const setupAuthorFilter = () => {
+            const authors = new Map();
+            // Pre-populate with known authors to ensure correct naming and order
+            authors.set('michael-chen', 'Michael Chen');
+            authors.set('sarah-jenkins', 'Sarah Jenkins');
+            authors.set('jane-doe', 'Jane Doe');
+
+            authorFilterSelect.innerHTML = `<option value="all">All Authors</option>`;
+            
+            authors.forEach((name, id) => {
+                const option = document.createElement('option');
+                option.value = id;
+                option.innerText = name;
+                authorFilterSelect.appendChild(option);
+            });
+
+            authorFilterSelect.addEventListener('change', () => {
+                currentPage = 1;
+                updatePostVisibility();
+            });
+        };
+
         if (searchInput) {
             searchInput.addEventListener('keyup', () => {
                 currentPage = 1; // Reset to page 1 on new search
@@ -351,8 +390,20 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
 
+        if (sortSelect) {
+            sortSelect.addEventListener('change', () => {
+                currentPage = 1;
+                updatePostVisibility();
+            });
+        }
+
         // Initial setup
         setupTagFilters();
+
+        // Initial setup for author filter
+        if (authorFilterSelect) {
+            setupAuthorFilter();
+        }
 
         // Initial setup
         updatePostVisibility();
@@ -512,6 +563,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const pages = [
             { url: 'index.html', title: 'Homepage', content: 'DevOps Engineer Training Courses Labs, Linux, Docker, Kubernetes, AWS, Terraform' },
             { url: 'about.html', title: 'About Us', content: 'Team Mission Michael Chen Sarah Jenkins David Smith' },
+            { url: 'authors.html', title: 'Our Authors', content: 'Michael Chen Sarah Jenkins Jane Doe' },
             { url: 'pricing.html', title: 'Pricing', content: 'Starter Pro Bootcamp Plans, course package options' },
             { url: 'blog.html', title: 'Blog', content: 'Articles tutorials news DevOps, Kubernetes, Linux, Terraform, Docker, CI/CD, Monitoring' },
             { url: 'lsa.html', title: 'Linux System Administration', content: 'Linux administration users services networking security LVM firewalld' },

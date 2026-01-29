@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Our Authors | HelloDevOps</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="home-page">
+
+<!-- Preloader -->
+<div id="preloader">
+  <div class="spinner"></div>
+</div>
+
+<nav class="navbar navbar-dark fixed-top navbar-on-scroll">
+  <div class="container">
+    <a class="navbar-brand fw-bold" href="index.html">← Hello<span class="text-warning">DevOps</span></a>
+    <div class="d-flex align-items-center">
+      <i class="bi bi-moon-stars-fill me-2" id="theme-toggle-icon"></i>
+      <div class="form-check form-switch">
+        <input class="form-check-input" type="checkbox" role="switch" id="theme-toggle">
+      </div>
+      <form class="d-flex ms-3" role="search" id="global-search-form">
+        <input class="form-control form-control-sm" type="search" placeholder="Search..." aria-label="Search" id="global-search-input">
+      </form>
+    </div>
+    <ul class="navbar-nav ms-auto mb-2 mb-lg-0 d-none d-lg-flex">
+        <li class="nav-item"><a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#contactModal">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<section class="py-5 text-center fade-in-section">
+  <div class="container">
+    <h1 class="display-4 fw-bold">Meet Our Authors</h1>
+    <p class="lead text-white-50 mt-3">The brilliant minds behind our articles and tutorials.</p>
+  </div>
+</section>
+
+<section class="py-5 fade-in-section">
+  <div class="container">
+    <!-- Michael Chen -->
+    <div id="michael-chen" class="row g-0 align-items-center mb-5">
+      <div class="col-md-3 text-center">
+        <img src="https://i.pravatar.cc/150?u=michael" class="rounded-circle" alt="Michael Chen" width="150" height="150" loading="lazy" decoding="async">
+      </div>
+      <div class="col-md-9">
+        <h3 class="fw-bold">Michael Chen</h3>
+        <p class="text-warning fw-bold">Lead Instructor & DevOps Architect</p>
+        <p class="text-white-50">With over 6 years of experience in cloud infrastructure and automation, Michael is an expert in Kubernetes, AWS, and building scalable CI/CD pipelines. He is passionate about sharing his real-world knowledge to help students succeed.</p>
+      </div>
+    </div>
+
+    <!-- Sarah Jenkins -->
+    <div id="sarah-jenkins" class="row g-0 align-items-center mb-5 flex-row-reverse">
+      <div class="col-md-3 text-center">
+        <img src="https://i.pravatar.cc/150?u=sarah" class="rounded-circle" alt="Sarah Jenkins" width="150" height="150" loading="lazy" decoding="async">
+      </div>
+      <div class="col-md-9 text-md-end">
+        <h3 class="fw-bold">Sarah Jenkins</h3>
+        <p class="text-warning fw-bold">Instructor & Cloud Engineer</p>
+        <p class="text-white-50">Sarah specializes in Linux administration and Infrastructure as Code. She has a knack for breaking down complex topics into easy-to-understand concepts, making her a favorite among beginners.</p>
+      </div>
+    </div>
+
+    <!-- Jane Doe -->
+    <div id="jane-doe" class="row g-0 align-items-center mb-5">
+      <div class="col-md-3 text-center">
+        <img src="https://i.pravatar.cc/150?u=jane" class="rounded-circle" alt="Jane Doe" width="150" height="150" loading="lazy" decoding="async">
+      </div>
+      <div class="col-md-9">
+        <h3 class="fw-bold">Jane Doe</h3>
+        <p class="text-warning fw-bold">Guest Contributor</p>
+        <p class="text-white-50">Jane is a Senior DevOps Engineer at a leading tech company. She occasionally contributes articles to our blog, sharing her insights on cutting-edge tools and industry trends.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="py-5">
+  <div class="container">
+    <div class="row justify-content-center text-center">
+      <div class="col-lg-6">
+        <h4 class="fw-bold">Subscribe to our Newsletter</h4>
+        <p class="text-white-50">Get the latest articles and course updates delivered to your inbox.</p>
+        <form id="newsletter-form" class="mt-4">
+          <div class="input-group mb-3">
+            <input type="email" class="form-control" placeholder="Enter your email" required>
+            <button class="btn btn-warning" type="submit">Subscribe</button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <hr class="my-4" style="border-color: var(--border-color);">
+    <div class="d-flex flex-column flex-sm-row justify-content-between align-items-center">
+        <p class="mb-3 mb-sm-0 text-white-50 small">© 2026 HelloDevOps. All Rights Reserved.</p>
+        <div class="d-flex align-items-center">
+            <a href="terms-of-service.html" class="text-white-50 text-decoration-none small me-3">Terms of Service</a>
+            <a href="privacy-policy.html" class="text-white-50 text-decoration-none small me-4">Privacy Policy</a>
+            <a href="#" class="text-white-50 me-3" title="Twitter"><i class="bi bi-twitter-x fs-5"></i></a>
+            <a href="#" class="text-white-50 me-3" title="LinkedIn"><i class="bi bi-linkedin fs-5"></i></a>
+            <a href="#" class="text-white-50" title="GitHub"><i class="bi bi-github fs-5"></i></a>
+        </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Contact Modal -->
+<div class="modal fade" id="contactModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content bg-dark text-light border-secondary">
+      <div class="modal-header border-secondary">
+        <h5 class="modal-title">Contact Us</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form id="modal-contact-form">
+          <div class="mb-3">
+            <label class="form-label">Name</label>
+            <input type="text" class="form-control" required>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Email</label>
+            <input type="email" class="form-control" required>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Message</label>
+            <textarea class="form-control" rows="4" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-warning w-100">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="cookie-banner" id="cookie-banner">
+  <p class="mb-0 text-white-50 small">We use cookies to improve your experience. By using our site, you agree to our <a href="privacy-policy.html" class="text-warning">Privacy Policy</a>.</p>
+  <button class="btn btn-warning btn-sm" id="accept-cookies">Accept</button>
+</div>
+
+<a href="#" class="back-to-top btn btn-warning rounded-circle"><i class="bi bi-arrow-up"></i></a>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="scripts.js"></script>
+</body>
+</html>
