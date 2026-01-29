@@ -25,14 +25,14 @@ body.light-mode {
   --navbar-bg: rgba(248, 249, 250, 0.8);
   --form-border-color: #ced4da;
   --accordion-icon-filter: initial;
-  --bg-image: radial-gradient(circle at 50% 0%, #ffffff 0%, #e5e5e5 100%);
+  --bg-image: radial-gradient(circle at 50% 0%, #e9e4e4 0%, #e5e5e5 100%);
 }
 
 body {
   background-color: var(--bg-color);
-  background-image: var(--bg-image);
-  background-size: cover;
-  background-position: center;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E"), var(--bg-image);
+  background-size: 200px, cover;
+  background-position: 0 0, center;
   background-attachment: fixed;
   color: var(--text-color);
   transition: background-color 0.3s ease, color 0.3s ease;
@@ -53,6 +53,10 @@ body.home-page {
   -webkit-text-fill-color: transparent;
   background-clip: text;
   text-fill-color: transparent;
+}
+
+.navbar-brand {
+  font-family: monospace;
 }
 
 .card {
@@ -454,10 +458,28 @@ footer a.text-white-50:hover {
 
 /* Tool Icons Hover Effect */
 .tool-icons i {
-    transition: color 0.3s ease, transform 0.3s ease;
+    transition: filter 0.3s ease, transform 0.3s ease, opacity 0.3s ease;
+    filter: grayscale(100%);
+    opacity: 0.7;
 }
 
 .tool-icons i:hover {
-    color: #ffc107 !important;
+    filter: grayscale(0%);
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+/* Hero Tool Icons */
+.tool-icons-hero i {
+    font-size: 2.5rem;
+    margin: 0 1rem;
+    transition: filter 0.3s ease, transform 0.3s ease, opacity 0.3s ease;
+    filter: grayscale(100%);
+    opacity: 0.7;
+}
+
+.tool-icons-hero i:hover {
+    filter: grayscale(0%);
+    opacity: 1;
     transform: scale(1.1);
 }
