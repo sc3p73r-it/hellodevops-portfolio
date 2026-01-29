@@ -1,0 +1,130 @@
+body {
+  background-color: #111827; /* A modern dark gray/blue */
+  color: #f8f9fa;
+}
+
+/* Add padding-top to body only on index.html which has the fixed-top navbar */
+body.home-page {
+  padding-top: 56px;
+}
+
+.gradient-text {
+  background: linear-gradient(90deg, #ffc107, #fd7e14);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+}
+
+.card {
+  background-color: #1f2937; /* Slightly lighter dark */
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+}
+
+.section-padding {
+  padding: 100px 0;
+}
+
+/* Navbar on main page */
+.navbar.fixed-top {
+  background-color: rgba(17, 24, 39, 0.8) !important; /* Same as body, but with transparency */
+  backdrop-filter: blur(10px);
+}
+
+/* Navbar on sub-pages */
+.navbar:not(.fixed-top) {
+    background-color: #1f2937 !important;
+}
+
+footer {
+  background-color: #111827;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.form-control {
+    background-color: #1f2937;
+    border-color: #4b5563;
+    color: #f8f9fa;
+}
+
+.form-control:focus {
+    background-color: #1f2937;
+    border-color: #ffc107;
+    color: #f8f9fa;
+    box-shadow: 0 0 0 0.25rem rgba(255, 193, 7, 0.25);
+}
+
+.form-control::placeholder {
+    color: #6b7280;
+}
+
+.accordion-item {
+    background-color: #1f2937;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.accordion-button {
+    background-color: #1f2937;
+    color: #f8f9fa;
+}
+
+.accordion-button:not(.collapsed) {
+    color: #ffc107;
+    background-color: #111827;
+    box-shadow: inset 0 -1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.accordion-button:focus {
+    box-shadow: 0 0 0 0.25rem rgba(255, 193, 7, 0.25);
+    border-color: #ffc107;
+}
+
+.accordion-button::after {
+    filter: invert(1) grayscale(100%) brightness(200%);
+}
+
+.list-group-item {
+    background-color: transparent;
+    border-color: rgba(255, 255, 255, 0.1) !important;
+    color: #f8f9fa;
+}
+
+/* Blog specific styles */
+.blog-post-meta {
+    color: #6b7280;
+}
+
+.blog-post-content p {
+    color: #adb5bd;
+    line-height: 1.7;
+}
+
+.blog-post-content h2, .blog-post-content h3 {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.blog-post-content code:not(pre > code) {
+    background-color: #1f2937;
+    padding: 0.2em 0.4em;
+    margin: 0;
+    font-size: 85%;
+    border-radius: 6px;
+}
+
+.blog-post-content pre {
+    padding: 16px;
+    overflow: auto;
+    font-size: 85%;
+    line-height: 1.45;
+    background-color: #1f2937;
+    border-radius: 6px;
+    color: #f8f9fa;
+}
