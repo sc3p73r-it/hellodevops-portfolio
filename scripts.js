@@ -74,6 +74,60 @@ document.addEventListener('DOMContentLoaded', () => {
         handleScroll(); // Check state on page load
     }
 
+    // --- Animated Counters (index.html) ---
+    const counters = document.querySelectorAll('.counter');
+    if (counters.length > 0) {
+        const counterObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const counter = entry.target;
+                    const updateCount = () => {
+                        const target = +counter.getAttribute('data-target');
+                        const count = +counter.innerText;
+                        const increment = target / 200; // Adjust speed of animation
+
+                        if (count < target) {
+                            counter.innerText = `${Math.ceil(count + increment)}`;
+                            setTimeout(updateCount, 1);
+                        } else {
+                            counter.innerText = target; // Ensure it ends on the exact target
+                        }
+                    };
+                    updateCount();
+                    observer.unobserve(counter); // Animate only once
+                }
+            });
+        }, {
+            threshold: 0.5
+        });
+
+        counters.forEach(counter => {
+            counterObserver.observe(counter);
+        });
+    }
+
+    // --- Cookie Consent Banner ---
+    const cookieBanner = document.getElementById('cookie-banner');
+    if (cookieBanner) {
+        const acceptCookiesButton = document.getElementById('accept-cookies');
+        
+        // Show banner if consent not given
+        if (!localStorage.getItem('cookie_consent')) {
+            // Use a timeout to avoid layout shift issues and let the page render first
+            setTimeout(() => {
+                cookieBanner.classList.add('is-visible');
+            }, 1500);
+        }
+
+        // Handle accept button click
+        if (acceptCookiesButton) {
+            acceptCookiesButton.addEventListener('click', () => {
+                localStorage.setItem('cookie_consent', 'true');
+                cookieBanner.classList.remove('is-visible');
+            });
+        }
+    }
+
 
     // --- Back to Top Button ---
     const backToTopButton = document.querySelector('.back-to-top');
@@ -118,6 +172,17 @@ document.addEventListener('DOMContentLoaded', () => {
                     post.style.display = 'none';
                 }
             });
+        });
+    }
+
+    // --- Newsletter Form ---
+    const newsletterForm = document.getElementById('newsletter-form');
+    if (newsletterForm) {
+        newsletterForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const emailInput = newsletterForm.querySelector('input[type="email"]');
+            alert(`Thank you for subscribing with ${emailInput.value}!`);
+            emailInput.value = '';
         });
     }
 });

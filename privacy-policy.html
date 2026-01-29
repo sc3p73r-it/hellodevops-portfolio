@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Why Kubernetes is the King of Orchestration | HelloDevOps</title>
+  <title>Privacy Policy | HelloDevOps</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
@@ -24,50 +24,34 @@
 
 <section class="py-5 fade-in-section">
   <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-md-8">
-        <h1 class="display-5 fw-bold">Why Kubernetes is the King of Orchestration</h1>
-        <p class="blog-post-meta">Posted on October 26, 2023 by Michael Chen</p>
+    <h1 class="fw-bold mb-4">Privacy Policy</h1>
+    <p class="text-white-50">Last updated: October 26, 2023</p>
 
-        <article class="blog-post-content mt-4">
-          <p>In the world of containerization, Docker started a revolution. But as applications grew in complexity, managing hundreds or thousands of containers became a significant challenge. This is where container orchestration platforms step in, and for the past several years, one name has dominated the conversation: <strong>Kubernetes</strong>.</p>
-          
-          <h3>What is Orchestration?</h3>
-          <p>Imagine you are a conductor of an orchestra. Each musician is a container. Your job is to make sure they all play the right notes at the right time, handle a musician getting sick (a container crashing), or bring in more violinists if a piece requires it (scaling). Container orchestration automates this entire process: deploying, managing, scaling, and networking containers.</p>
+    <div class="text-white-50 mt-4">
+      <h3 class="text-white">1. Introduction</h3>
+      <p>Welcome to HelloDevOps. We respect your privacy and are committed to protecting your personal data. This privacy policy will inform you as to how we look after your personal data when you visit our website and tell you about your privacy rights and how the law protects you.</p>
 
-          <h3>The Kubernetes Advantage</h3>
-          <p>So, why did Kubernetes win the "orchestration wars" against competitors like Docker Swarm and Mesos? It comes down to a few key factors:</p>
-          <ul>
-            <li><strong>Declarative Configuration:</strong> You tell Kubernetes the desired state of your application (e.g., "I want 3 replicas of my web server running"), and Kubernetes works to maintain that state.</li>
-            <li><strong>Self-Healing:</strong> If a container fails, Kubernetes automatically restarts it. If a whole node (server) dies, it reschedules the containers on healthy nodes.</li>
-            <li><strong>Horizontal Scaling:</strong> Need to handle more traffic? A single command can scale up your application to have more container replicas.</li>
-            <li><strong>Vibrant Community:</strong> Backed by Google and the Cloud Native Computing Foundation (CNCF), Kubernetes has a massive, active community that constantly contributes to its development and ecosystem.</li>
-          </ul>
+      <h3 class="text-white mt-4">2. Data We Collect</h3>
+      <p>We may collect, use, store and transfer different kinds of personal data about you which we have grouped together follows:</p>
+      <ul>
+        <li><strong>Identity Data</strong> includes first name, last name, username or similar identifier.</li>
+        <li><strong>Contact Data</strong> includes email address and telephone number.</li>
+        <li><strong>Technical Data</strong> includes internet protocol (IP) address, your login data, browser type and version, time zone setting and location, browser plug-in types and versions, operating system and platform and other technology on the devices you use to access this website.</li>
+      </ul>
 
-          <h3>A Simple Example</h3>
-          <p>A Kubernetes deployment configuration might look something like this in YAML:</p>
-<pre><code>apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: nginx-deployment
-spec:
-  replicas: 3
-  selector:
-    matchLabels:
-      app: nginx
-  template:
-    metadata:
-      labels:
-        app: nginx
-    spec:
-      containers:
-      - name: nginx
-        image: nginx:1.14.2
-        ports:
-        - containerPort: 80</code></pre>
-          <p>This simple file tells Kubernetes to ensure that 3 replicas of the Nginx container are always running. It's a powerful concept that forms the foundation of modern, resilient application deployment.</p>
-        </article>
-      </div>
+      <h3 class="text-white mt-4">3. How We Use Your Data</h3>
+      <p>We will only use your personal data when the law allows us to. Most commonly, we will use your personal data in the following circumstances:</p>
+      <ul>
+        <li>Where we need to perform the contract we are about to enter into or have entered into with you.</li>
+        <li>Where it is necessary for our legitimate interests (or those of a third party) and your interests and fundamental rights do not override those interests.</li>
+        <li>Where we need to comply with a legal or regulatory obligation.</li>
+      </ul>
+
+      <h3 class="text-white mt-4">4. Cookies</h3>
+      <p>You can set your browser to refuse all or some browser cookies, or to alert you when websites set or access cookies. If you disable or refuse cookies, please note that some parts of this website may become inaccessible or not function properly.</p>
+
+      <h3 class="text-white mt-4">5. Contact Us</h3>
+      <p>If you have any questions about this privacy policy or our privacy practices, please contact us at: support@hellodevops.com</p>
     </div>
   </div>
 </section>
@@ -100,13 +84,11 @@ spec:
   </div>
 </footer>
 
-<!-- Cookie Consent Banner -->
 <div class="cookie-banner" id="cookie-banner">
   <p class="mb-0 text-white-50 small">We use cookies to improve your experience. By using our site, you agree to our <a href="privacy-policy.html" class="text-warning">Privacy Policy</a>.</p>
   <button class="btn btn-warning btn-sm" id="accept-cookies">Accept</button>
 </div>
 
-<!-- Back to Top Button -->
 <a href="#" class="back-to-top btn btn-warning rounded-circle"><i class="bi bi-arrow-up"></i></a>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
