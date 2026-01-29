@@ -30,13 +30,19 @@
         <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
         <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
         <li class="nav-item"><a class="btn btn-warning ms-lg-3" href="#">Enroll Now</a></li>
+        <li class="nav-item d-flex align-items-center ms-lg-3">
+          <i class="bi bi-moon-stars-fill me-2" id="theme-toggle-icon"></i>
+          <div class="form-check form-switch">
+            <input class="form-check-input" type="checkbox" role="switch" id="theme-toggle">
+          </div>
+        </li>
       </ul>
     </div>
   </div>
 </nav>
 
 <!-- Hero Section -->
-<section class="text-center section-padding">
+<section class="text-center section-padding fade-in-section">
   <div class="container">
     <h1 class="display-3 fw-bolder">Become a <span class="gradient-text">DevOps Engineer</span></h1>
     <p class="lead text-white-50 my-4">Hands-on DevOps Training with Real‑World Projects to launch your career.</p>
@@ -48,7 +54,7 @@
 </section>
 
 <!-- Courses -->
-<section id="courses" class="section-padding" style="background-color: #1f2937;">
+<section id="courses" class="section-padding bg-lighter fade-in-section">
   <div class="container">
     <div class="text-center mb-5">
       <h2 class="fw-bold">Our DevOps Courses</h2>
@@ -120,7 +126,7 @@
 </section>
 
 <!-- Features -->
-<section id="features" class="section-padding">
+<section id="features" class="section-padding fade-in-section">
   <div class="container">
     <div class="row text-center">
       <div class="col-md-3">
@@ -148,7 +154,7 @@
 </section>
 
 <!-- Testimonials -->
-<section id="testimonials" class="section-padding" style="background-color: #1f2937;">
+<section id="testimonials" class="section-padding bg-lighter fade-in-section">
   <div class="container">
     <div class="text-center mb-5">
       <h2 class="fw-bold">What Our Students Say</h2>
@@ -156,15 +162,16 @@
     </div>
     <div class="row g-4">
       <div class="col-md-4">
-        <div class="card h-100 shadow border-0" style="background-color: #111827;">
+        <div class="card h-100 shadow border-0">
           <div class="card-body p-4">
             <div class="mb-3 text-warning">
               <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
             </div>
             <p class="card-text text-white-50 fst-italic">"The AWS DevOps course was fantastic. The real-world projects helped me land my first Cloud Engineer role."</p>
             <div class="d-flex align-items-center mt-4">
+              <img src="https://i.pravatar.cc/150?u=sarah" class="rounded-circle me-3" alt="Sarah Jenkins" width="50" height="50" loading="lazy" decoding="async">
               <div>
-                <h6 class="fw-bold mb-0 text-white">Sarah Jenkins</h6>
+                <h6 class="fw-bold mb-0">Sarah Jenkins</h6>
                 <small class="text-white-50">Cloud Engineer</small>
               </div>
             </div>
@@ -172,31 +179,33 @@
         </div>
       </div>
       <div class="col-md-4">
-        <div class="card h-100 shadow border-0" style="background-color: #111827;">
+        <div class="card h-100 shadow border-0">
           <div class="card-body p-4">
             <div class="mb-3 text-warning">
               <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-half"></i>
             </div>
             <p class="card-text text-white-50 fst-italic">"Kubernetes Mastery is a must-have. The instructor breaks down complex topics into easy-to-understand concepts."</p>
             <div class="d-flex align-items-center mt-4">
+              <img src="https://i.pravatar.cc/150?u=michael" class="rounded-circle me-3" alt="Michael Chen" width="50" height="50" loading="lazy" decoding="async">
               <div>
-                <h6 class="fw-bold mb-0 text-white">Michael Chen</h6>
-                <small class="text-white-50">DevOps Engineer</small>
+                <h6 class="fw-bold mb-0">Michael Chen</h6>
+                <small class="text-white-50">DevOps Lead</small>
               </div>
             </div>
           </div>
         </div>
       </div>
       <div class="col-md-4">
-        <div class="card h-100 shadow border-0" style="background-color: #111827;">
+        <div class="card h-100 shadow border-0">
           <div class="card-body p-4">
             <div class="mb-3 text-warning">
               <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
             </div>
             <p class="card-text text-white-50 fst-italic">"I started with zero Linux knowledge. The Linux Administration course gave me the confidence to switch careers."</p>
             <div class="d-flex align-items-center mt-4">
+              <img src="https://i.pravatar.cc/150?u=david" class="rounded-circle me-3" alt="David Smith" width="50" height="50" loading="lazy" decoding="async">
               <div>
-                <h6 class="fw-bold mb-0 text-white">David Smith</h6>
+                <h6 class="fw-bold mb-0">David Smith</h6>
                 <small class="text-white-50">System Admin</small>
               </div>
             </div>
@@ -208,7 +217,7 @@
 </section>
 
 <!-- Blog -->
-<section id="blog" class="section-padding">
+<section id="blog" class="section-padding fade-in-section">
   <div class="container">
     <div class="text-center mb-5">
       <h2 class="fw-bold">From Our Blog</h2>
@@ -250,7 +259,7 @@
 </section>
 
 <!-- FAQ -->
-<section id="faq" class="section-padding" style="background-color: #1f2937;">
+<section id="faq" class="section-padding bg-lighter fade-in-section">
   <div class="container">
     <div class="text-center mb-5">
       <h2 class="fw-bold">Frequently Asked Questions</h2>
@@ -301,12 +310,12 @@
 </section>
 
 <!-- Contact -->
-<section id="contact" class="section-padding">
+<section id="contact" class="section-padding fade-in-section">
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-md-6">
         <h2 class="text-center mb-4">Contact Us</h2>
-        <form onsubmit="submitForm(event)">
+        <form id="contact-form">
           <div class="mb-3">
             <input type="text" class="form-control" placeholder="Your Name" required>
           </div>
@@ -330,19 +339,12 @@
   </div>
 </footer>
 
+<!-- Back to Top Button -->
+<a href="#" class="back-to-top btn btn-warning rounded-circle"><i class="bi bi-arrow-up"></i></a>
+
 <!-- Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-
-<script>
-  function enroll(course) {
-    alert('You have selected: ' + course + '\nOur team will contact you soon!');
-  }
-
-  function submitForm(e) {
-    e.preventDefault();
-    alert('Thank you for contacting HelloDevOps!');
-  }
-</script>
+<script src="scripts.js"></script>
 
 </body>
 </html>
