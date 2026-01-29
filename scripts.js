@@ -441,4 +441,123 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
+
+    // --- Copy Code Button (blog-post-1.html) ---
+    const codeBlocks = document.querySelectorAll('.blog-post-content pre');
+    if (codeBlocks.length > 0) {
+        codeBlocks.forEach(pre => {
+            const button = document.createElement('button');
+            button.className = 'copy-code-btn';
+            button.innerHTML = '<i class="bi bi-clipboard"></i> Copy';
+            
+            button.addEventListener('click', () => {
+                const code = pre.querySelector('code').innerText;
+                navigator.clipboard.writeText(code).then(() => {
+                    button.innerHTML = '<i class="bi bi-check2"></i> Copied!';
+                    setTimeout(() => {
+                        button.innerHTML = '<i class="bi bi-clipboard"></i> Copy';
+                    }, 2000);
+                }).catch(err => {
+                    console.error('Failed to copy: ', err);
+                });
+            });
+            
+            pre.appendChild(button);
+        });
+    }
+
+    // --- Scroll Progress Bar (blog-post-1.html) ---
+    const scrollProgressBar = document.getElementById('scroll-progress');
+    if (scrollProgressBar) {
+        window.addEventListener('scroll', () => {
+            const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+            const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrollPercent = (scrollTop / scrollHeight) * 100;
+            scrollProgressBar.style.width = scrollPercent + '%';
+        });
+    }
+
+    // --- Modal Contact Form ---
+    const modalContactForm = document.getElementById('modal-contact-form');
+    if (modalContactForm) {
+        modalContactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const contactModalEl = document.getElementById('contactModal');
+            const contactModal = bootstrap.Modal.getInstance(contactModalEl);
+            if (contactModal) {
+                contactModal.hide();
+            }
+            alert('Thank you for contacting HelloDevOps! We will get back to you shortly.');
+            modalContactForm.reset();
+        });
+    }
+
+    // --- Global Search ---
+    const globalSearchForm = document.getElementById('global-search-form');
+    if (globalSearchForm) {
+        globalSearchForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const searchInput = document.getElementById('global-search-input');
+            const query = searchInput.value.trim();
+            if (query) {
+                window.location.href = `search.html?q=${encodeURIComponent(query)}`;
+            }
+        });
+    }
+
+    // --- Search Results Page Logic (search.html) ---
+    const searchResultsContainer = document.getElementById('search-results-container');
+    if (searchResultsContainer) {
+        // 1. Define the content to search
+        const pages = [
+            { url: 'index.html', title: 'Homepage', content: 'DevOps Engineer Training Courses Labs, Linux, Docker, Kubernetes, AWS, Terraform' },
+            { url: 'about.html', title: 'About Us', content: 'Team Mission Michael Chen Sarah Jenkins David Smith' },
+            { url: 'pricing.html', title: 'Pricing', content: 'Starter Pro Bootcamp Plans, course package options' },
+            { url: 'blog.html', title: 'Blog', content: 'Articles tutorials news DevOps, Kubernetes, Linux, Terraform, Docker, CI/CD, Monitoring' },
+            { url: 'lsa.html', title: 'Linux System Administration', content: 'Linux administration users services networking security LVM firewalld' },
+            { url: 'docker.html', title: 'Docker Administration', content: 'Container management images networking production Docker Compose' },
+            { url: 'terraform.html', title: 'Terraform Beginner', content: 'Infrastructure as Code, IaC, providers, resources, modules' },
+            { url: 'devops-fundamentals.html', title: 'DevOps Fundamentals', content: 'Linux Git CI/CD basics Docker introduction' },
+            { url: 'aws-devops.html', title: 'AWS DevOps', content: 'EC2 VPC IAM CI/CD EKS Terraform, CodePipeline, CodeBuild, CodeDeploy' },
+            { url: 'kubernetes-mastery.html', title: 'Kubernetes Mastery', content: 'Docker K8s Helm Monitoring Production setups, Pods, Deployments' },
+            { url: 'blog-post-1.html', title: 'Why Kubernetes is the King of Orchestration', content: 'Kubernetes Docker orchestration declarative configuration self-healing scaling YAML' },
+            { url: 'privacy-policy.html', title: 'Privacy Policy', content: 'Data collection, cookies, contact information' },
+            { url: 'terms-of-service.html', title: 'Terms of Service', content: 'Acceptance of terms, intellectual property, liability' },
+        ];
+
+        // 2. Get query from URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const query = urlParams.get('q');
+        const queryTerm = query ? query.toLowerCase() : '';
+        
+        const resultsTitle = document.getElementById('search-results-title');
+        if (resultsTitle) {
+            resultsTitle.innerText = `Search Results for: "${query}"`;
+        }
+        // Also set the value of the search input in the navbar
+        const searchInput = document.getElementById('global-search-input');
+        if(searchInput) searchInput.value = query;
+
+        // 3. Perform search and display results
+        const results = pages.filter(page => 
+            page.title.toLowerCase().includes(queryTerm) || 
+            page.content.toLowerCase().includes(queryTerm)
+        );
+
+        if (results.length > 0) {
+            results.forEach(result => {
+                const resultElement = document.createElement('div');
+                resultElement.classList.add('mb-4', 'pb-3');
+                resultElement.style.borderBottom = '1px solid var(--border-color)';
+                resultElement.innerHTML = `
+                    <h4><a href="${result.url}" class="text-warning text-decoration-none">${result.title}</a></h4>
+                    <p class="text-white-50 mb-1">${result.content}</p>
+                    <a href="${result.url}" class="text-white-50 small text-decoration-none">${window.location.origin}/${result.url}</a>
+                `;
+                searchResultsContainer.appendChild(resultElement);
+            });
+        } else {
+            searchResultsContainer.innerHTML = '<p class="lead text-white-50">No results found for your query.</p>';
+        }
+    }
 });

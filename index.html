@@ -34,7 +34,7 @@
         <li class="nav-item"><a class="nav-link" href="#features">Why Us</a></li>
         <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
         <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
-        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+        <li class="nav-item"><a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#contactModal">Contact</a></li>
         <li class="nav-item"><a class="btn btn-warning ms-lg-3" href="#">Enroll Now</a></li>
         <li class="nav-item d-flex align-items-center ms-lg-3">
           <i class="bi bi-moon-stars-fill me-2" id="theme-toggle-icon"></i>
@@ -43,6 +43,9 @@
           </div>
         </li>
       </ul>
+      <form class="d-flex ms-lg-3" role="search" id="global-search-form">
+        <input class="form-control form-control-sm" type="search" placeholder="Search..." aria-label="Search" id="global-search-input">
+      </form>
     </div>
   </div>
 </nav>
@@ -366,6 +369,35 @@
     </div>
   </div>
 </footer>
+
+<!-- Contact Modal -->
+<div class="modal fade" id="contactModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content bg-dark text-light border-secondary">
+      <div class="modal-header border-secondary">
+        <h5 class="modal-title">Contact Us</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form id="modal-contact-form">
+          <div class="mb-3">
+            <label class="form-label">Name</label>
+            <input type="text" class="form-control" required>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Email</label>
+            <input type="email" class="form-control" required>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Message</label>
+            <textarea class="form-control" rows="4" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-warning w-100">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
 
 <!-- Cookie Consent Banner -->
 <div class="cookie-banner" id="cookie-banner">
