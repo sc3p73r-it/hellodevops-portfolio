@@ -1,73 +1,73 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://www.hellodevops.com/index.html</loc>
+    <loc>https://traing.vitaltechmyanmar.com/index.html</loc>
     <lastmod>2023-10-26</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://www.hellodevops.com/about.html</loc>
+    <loc>https://training.vitaltechmyanmar.com/about.html</loc>
     <lastmod>2023-10-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.hellodevops.com/authors.html</loc>
+    <loc>https://training.vitaltechmyanmar.com/authors.html</loc>
     <lastmod>2023-10-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.hellodevops.com/courses.html</loc>
+    <loc>https://training.vitaltechmyanmar.com/courses.html</loc>
     <lastmod>2023-10-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.hellodevops.com/pricing.html</loc>
+    <loc>https://training.vitaltechmyanmar.com/pricing.html</loc>
     <lastmod>2023-10-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.hellodevops.com/blog.html</loc>
+    <loc>https://training.vitaltechmyanmar.com/blog.html</loc>
     <lastmod>2023-10-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.hellodevops.com/blog-post-1.html</loc>
+    <loc>https://training.vitaltechmyanmar.com/blog-post-1.html</loc>
     <lastmod>2023-10-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.hellodevops.com/aws-devops.html</loc>
+    <loc>https://training.vitaltechmyanmar.com/aws-devops.html</loc>
     <lastmod>2023-10-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.hellodevops.com/devops-fundamentals.html</loc>
+    <loc>https://training.vitaltechmyanmar.com/devops-fundamentals.html</loc>
     <lastmod>2023-10-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.hellodevops.com/docker.html</loc>
+    <loc>https://training.vitaltechmyanmar.com/docker.html</loc>
     <lastmod>2023-10-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.hellodevops.com/kubernetes-mastery.html</loc>
+    <loc>https://training.vitaltechmyanmar.com/kubernetes-mastery.html</loc>
     <lastmod>2023-10-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.hellodevops.com/terraform.html</loc>
+    <loc>https://training.vitaltechmyanmar.com/terraform.html</loc>
     <lastmod>2023-10-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>

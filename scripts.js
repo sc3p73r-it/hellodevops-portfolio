@@ -364,8 +364,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const setupAuthorFilter = () => {
             const authors = new Map();
             // Pre-populate with known authors to ensure correct naming and order
-            authors.set('michael-chen', 'Michael Chen');
-            authors.set('sarah-jenkins', 'Sarah Jenkins');
+            authors.set('wai-yan', 'Htet Oo Wai Yan');
+            authors.set('pone-myat', 'Pone Myat Thar');
             authors.set('jane-doe', 'Jane Doe');
 
             authorFilterSelect.innerHTML = `<option value="all">All Authors</option>`;
@@ -561,9 +561,9 @@ document.addEventListener('DOMContentLoaded', () => {
     if (searchResultsContainer) {
         // 1. Define the content to search
         const pages = [
-            { url: 'index.html', title: 'Homepage', content: 'DevOps Engineer Training Courses Labs, Linux, Docker, Kubernetes, AWS, Terraform' },
-            { url: 'about.html', title: 'About Us', content: 'Team Mission Michael Chen Sarah Jenkins David Smith' },
-            { url: 'authors.html', title: 'Our Authors', content: 'Michael Chen Sarah Jenkins Jane Doe' },
+            { url: 'index.html', title: 'Homepage', content: 'DevOps Engineer Training Courses Labs, Linux, Docker, Kubernetes, AWS, Terraform Htet Oo Wai Yan' },
+            { url: 'about.html', title: 'About Us', content: 'Team Mission Htet Oo Wai Yan Htet Oo Wai Yan David Smith' },
+            { url: 'authors.html', title: 'Our Authors', content: 'Htet Oo Wai Yan Htet Oo Wai Yan Jane Doe' },
             { url: 'pricing.html', title: 'Pricing', content: 'Starter Pro Bootcamp Plans, course package options' },
             { url: 'blog.html', title: 'Blog', content: 'Articles tutorials news DevOps, Kubernetes, Linux, Terraform, Docker, CI/CD, Monitoring' },
             { url: 'lsa.html', title: 'Linux System Administration', content: 'Linux administration users services networking security LVM firewalld' },
@@ -573,6 +573,7 @@ document.addEventListener('DOMContentLoaded', () => {
             { url: 'aws-devops.html', title: 'AWS DevOps', content: 'EC2 VPC IAM CI/CD EKS Terraform, CodePipeline, CodeBuild, CodeDeploy' },
             { url: 'kubernetes-mastery.html', title: 'Kubernetes Mastery', content: 'Docker K8s Helm Monitoring Production setups, Pods, Deployments' },
             { url: 'blog-post-1.html', title: 'Why Kubernetes is the King of Orchestration', content: 'Kubernetes Docker orchestration declarative configuration self-healing scaling YAML' },
+            { url: 'blog-post-2.html', title: '7 Docker Best Practices for Production', content: 'Docker images security multi-stage builds non-root user .dockerignore vulnerabilities' },
             { url: 'privacy-policy.html', title: 'Privacy Policy', content: 'Data collection, cookies, contact information' },
             { url: 'terms-of-service.html', title: 'Terms of Service', content: 'Acceptance of terms, intellectual property, liability' },
         ];

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Why Kubernetes is the King of Orchestration | HelloDevOps</title>
+  <title>7 Docker Best Practices for Production | HelloDevOps</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
@@ -45,8 +45,8 @@
         <div class="mb-4">
             <a href="blog.html" class="text-white-50 text-decoration-none"><i class="bi bi-arrow-left"></i> Back to All Posts</a>
         </div>
-        <h1 class="display-5 fw-bold">Why Kubernetes is the King of Orchestration</h1>
-        <p class="blog-post-meta">Posted on October 26, 2023 by <a href="authors.html#wai-yan" class="text-white-50">Htet Oo Wai Yan</a><span class="mx-2">·</span><i class="bi bi-clock me-1"></i><span id="reading-time"></span><span class="mx-2">·</span><i class="bi bi-pencil-square me-1"></i><span>Updated on Nov 1, 2023</span></p>
+        <h1 class="display-5 fw-bold">7 Docker Best Practices for Production</h1>
+        <p class="blog-post-meta">Posted on November 15, 2023 by <a href="authors.html#wai-yan" class="text-white-50">Htet Oo Wai Yan</a><span class="mx-2">·</span><i class="bi bi-clock me-1"></i><span id="reading-time"></span><span class="mx-2">·</span><i class="bi bi-pencil-square me-1"></i><span>Updated on Nov 16, 2023</span></p>
 
         <div class="share-buttons d-flex align-items-center mt-3">
           <span class="me-3 text-white-50 small">Share:</span>
@@ -65,42 +65,39 @@
         </div>
 
         <article class="blog-post-content mt-4">
-          <p>In the world of containerization, Docker started a revolution. But as applications grew in complexity, managing hundreds or thousands of containers became a significant challenge. This is where container orchestration platforms step in, and for the past several years, one name has dominated the conversation: <strong>Kubernetes</strong>.</p>
+          <p>Docker has revolutionized how we build and deploy applications. However, running Docker in production requires more than just a working <code>Dockerfile</code>. Here are 7 best practices to ensure your containers are secure, efficient, and reliable.</p>
           
-          <h3>What is Orchestration?</h3>
-          <p>Imagine you are a conductor of an orchestra. Each musician is a container. Your job is to make sure they all play the right notes at the right time, handle a musician getting sick (a container crashing), or bring in more violinists if a piece requires it (scaling). Container orchestration automates this entire process: deploying, managing, scaling, and networking containers.</p>
+          <h3>1. Use Official Base Images</h3>
+          <p>Always start with official images from Docker Hub (e.g., <code>node</code>, <code>python</code>, <code>nginx</code>). These are maintained by the library authors and Docker, ensuring they are patched and secure.</p>
 
-          <h3>The Kubernetes Advantage</h3>
-          <p>So, why did Kubernetes win the "orchestration wars" against competitors like Docker Swarm and Mesos? It comes down to a few key factors:</p>
-          <ul>
-            <li><strong>Declarative Configuration:</strong> You tell Kubernetes the desired state of your application (e.g., "I want 3 replicas of my web server running"), and Kubernetes works to maintain that state.</li>
-            <li><strong>Self-Healing:</strong> If a container fails, Kubernetes automatically restarts it. If a whole node (server) dies, it reschedules the containers on healthy nodes.</li>
-            <li><strong>Horizontal Scaling:</strong> Need to handle more traffic? A single command can scale up your application to have more container replicas.</li>
-            <li><strong>Vibrant Community:</strong> Backed by Google and the Cloud Native Computing Foundation (CNCF), Kubernetes has a massive, active community that constantly contributes to its development and ecosystem.</li>
-          </ul>
+          <h3>2. Use Specific Tags</h3>
+          <p>Avoid using the <code>latest</code> tag in production. It changes over time and can break your build. Instead, pin your image to a specific version, like <code>node:18.16.0-alpine</code>.</p>
 
-          <h3>A Simple Example</h3>
-          <p>A Kubernetes deployment configuration might look something like this in YAML:</p>
-<pre><code>apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: nginx-deployment
-spec:
-  replicas: 3
-  selector:
-    matchLabels:
-      app: nginx
-  template:
-    metadata:
-      labels:
-        app: nginx
-    spec:
-      containers:
-      - name: nginx
-        image: nginx:1.14.2
-        ports:
-        - containerPort: 80</code></pre>
-          <p>This simple file tells Kubernetes to ensure that 3 replicas of the Nginx container are always running. It's a powerful concept that forms the foundation of modern, resilient application deployment.</p>
+          <h3>3. Multi-Stage Builds</h3>
+          <p>Multi-stage builds allow you to separate the build environment from the runtime environment. This drastically reduces the final image size by excluding build tools and intermediate files.</p>
+<pre><code># Build Stage
+FROM node:18 AS builder
+WORKDIR /app
+COPY . .
+RUN npm install && npm run build
+
+# Production Stage
+FROM node:18-alpine
+WORKDIR /app
+COPY --from=builder /app/dist ./dist
+CMD ["node", "dist/main.js"]</code></pre>
+
+          <h3>4. Run as Non-Root User</h3>
+          <p>By default, Docker containers run as root. This is a security risk. Create a dedicated user in your Dockerfile and switch to it using the <code>USER</code> instruction.</p>
+
+          <h3>5. Use .dockerignore</h3>
+          <p>Just like <code>.gitignore</code>, a <code>.dockerignore</code> file prevents unnecessary files (like <code>node_modules</code>, logs, or secrets) from being copied into the image context, speeding up builds and improving security.</p>
+
+          <h3>6. Scan for Vulnerabilities</h3>
+          <p>Use tools like Docker Scout, Trivy, or Snyk to scan your images for known CVEs before deploying them to production.</p>
+
+          <h3>7. Keep Images Small</h3>
+          <p>Use minimal base images like Alpine Linux where possible. Smaller images build faster, pull faster, and have a smaller attack surface.</p>
         </article>
       </div>
     </div>
@@ -115,8 +112,8 @@ spec:
       <div class="col-md-6">
         <div class="card h-100 shadow">
           <div class="card-body d-flex flex-column">
-            <h5 class="card-title text-warning">5 Essential Linux Commands for a DevOps Engineer</h5>
-            <p class="card-text text-white-50">Master these five commands to boost your productivity and efficiency when working on any Linux-based system.</p>
+            <h5 class="card-title text-warning">Why Kubernetes is the King of Orchestration</h5>
+            <p class="card-text text-white-50">A deep dive into the architecture and benefits of Kubernetes that make it the de-facto standard for container orchestration.</p>
             <a href="blog-post-1.html" class="btn btn-outline-warning mt-auto">Read More</a>
           </div>
         </div>
@@ -124,8 +121,8 @@ spec:
       <div class="col-md-6">
         <div class="card h-100 shadow">
           <div class="card-body d-flex flex-column">
-            <h5 class="card-title text-warning">Infrastructure as Code: Terraform vs. CloudFormation</h5>
-            <p class="card-text text-white-50">An in-depth comparison between the two leading IaC tools to help you choose the right one for your next project.</p>
+            <h5 class="card-title text-warning">Getting Started with Docker Compose</h5>
+            <p class="card-text text-white-50">Learn how to define and run multi-container Docker applications with a single command.</p>
             <a href="blog-post-1.html" class="btn btn-outline-warning mt-auto">Read More</a>
           </div>
         </div>
@@ -154,17 +151,9 @@ spec:
 
         <hr class="my-5" style="border-color: var(--border-color);">
 
-        <h4 class="fw-bold mb-4">Comments (<span id="comment-count">1</span>)</h4>
+        <h4 class="fw-bold mb-4">Comments (<span id="comment-count">0</span>)</h4>
         <div id="comments-container">
-          <!-- Sample Comment -->
-          <div class="d-flex mb-4">
-            <img src="https://i.pravatar.cc/150?u=jane" class="rounded-circle me-3" alt="Jane Doe" width="50" height="50">
-            <div>
-              <h6 class="fw-bold mb-1">Jane Doe</h6>
-              <p class="text-white-50 mb-1">Great article! This really clarifies the core concepts of Kubernetes. Looking forward to more posts like this.</p>
-              <small class="text-white-50">October 26, 2023</small>
-            </div>
-          </div>
+          <!-- Comments will be added here -->
         </div>
       </div>
     </div>
