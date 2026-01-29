@@ -1,6 +1,6 @@
 // Global function for onclick attributes if any exist
 function enroll(course) {
-    alert('You have selected: ' + course + '\nOur team will contact you soon!');
+    alert('You have selected: ' + course + '\nOur team will launch the course soon!');
 }
 
 // --- Preloader ---
