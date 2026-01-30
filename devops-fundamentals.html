@@ -102,6 +102,7 @@
             <p class="text-white-50 mb-4"><strong>Prerequisites:</strong> Basic IT knowledge</p>
             <a href="#" class="btn btn-outline-warning w-100 mb-2" data-bs-toggle="modal" data-bs-target="#syllabusModal"><i class="bi bi-file-earmark-pdf me-2"></i>Download Syllabus</a>
             <a href="#" class="btn btn-warning w-100">Enroll Now</a>
+            <a href="#" class="btn btn-outline-warning w-100 mt-2" data-bs-toggle="modal" data-bs-target="#shareModal"><i class="bi bi-share me-2"></i>Share Course</a>
           </div>
         </div>
       </div>
@@ -329,6 +330,27 @@
         <h4 class="fw-bold">Success!</h4>
         <p class="text-white-50 mb-4">The detailed course syllabus has been saved to your device.</p>
         <button type="button" class="btn btn-outline-light w-100" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Share Modal -->
+<div class="modal fade" id="shareModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content bg-dark text-light border-secondary">
+      <div class="modal-header border-secondary">
+        <h5 class="modal-title">Share this Course</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body text-center py-4">
+        <p class="text-white-50 mb-4">Spread the word about this course!</p>
+        <div class="d-flex justify-content-center gap-3">
+          <a href="#" class="btn btn-outline-light rounded-circle p-3" id="share-course-twitter" title="Share on Twitter"><i class="bi bi-twitter-x fs-4"></i></a>
+          <a href="#" class="btn btn-outline-light rounded-circle p-3" id="share-course-linkedin" title="Share on LinkedIn"><i class="bi bi-linkedin fs-4"></i></a>
+          <a href="#" class="btn btn-outline-light rounded-circle p-3" id="share-course-facebook" title="Share on Facebook"><i class="bi bi-facebook fs-4"></i></a>
+          <button class="btn btn-outline-light rounded-circle p-3" id="copyCourseLink" title="Copy Link"><i class="bi bi-link-45deg fs-4"></i></button>
+        </div>
       </div>
     </div>
   </div>

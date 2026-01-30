@@ -732,4 +732,49 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }, 1500);
     }
+
+    // --- Share Course Modal ---
+    const shareModal = document.getElementById('shareModal');
+    if (shareModal) {
+        const currentUrl = window.location.href;
+        const pageTitle = document.title;
+
+        const twitterBtn = document.getElementById('share-course-twitter');
+        const linkedinBtn = document.getElementById('share-course-linkedin');
+        const facebookBtn = document.getElementById('share-course-facebook');
+        const copyBtn = document.getElementById('copyCourseLink');
+
+        if (twitterBtn) {
+            twitterBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                window.open(`https://twitter.com/intent/tweet?url=${encodeURIComponent(currentUrl)}&text=${encodeURIComponent(pageTitle)}`, '_blank', 'width=600,height=400');
+            });
+        }
+
+        if (linkedinBtn) {
+            linkedinBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                window.open(`https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(currentUrl)}&title=${encodeURIComponent(pageTitle)}`, '_blank', 'width=600,height=600');
+            });
+        }
+
+        if (facebookBtn) {
+            facebookBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(currentUrl)}`, '_blank', 'width=600,height=600');
+            });
+        }
+
+        if (copyBtn) {
+            copyBtn.addEventListener('click', () => {
+                navigator.clipboard.writeText(currentUrl).then(() => {
+                    const originalIcon = copyBtn.innerHTML;
+                    copyBtn.innerHTML = '<i class="bi bi-check2 fs-4"></i>';
+                    setTimeout(() => {
+                        copyBtn.innerHTML = originalIcon;
+                    }, 2000);
+                });
+            });
+        }
+    }
 });
