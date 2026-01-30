@@ -597,3 +597,12 @@ body:not(.light-mode) .devicon-linux-plain.colored {
   border-radius: 50%;
   margin: 0 auto 1rem;
 }
+
+/* Carousel Customization */
+.carousel-indicators {
+  bottom: -20px;
+}
+
+.carousel-control-prev, .carousel-control-next {
+  width: 5%;
+}
