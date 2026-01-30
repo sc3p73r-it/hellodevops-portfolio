@@ -3,10 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>404 Not Found | HelloDevOps</title>
+  <title>Resources | HelloDevOps</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
 </head>
 <body class="home-page">
 
@@ -36,13 +37,62 @@
   </div>
 </nav>
 
-<section class="section-padding d-flex align-items-center justify-content-center text-center">
-    <div>
-        <h1 class="display-1 fw-bold gradient-text">404</h1>
-        <h2 class="fw-bold">Page Not Found</h2>
-        <p class="lead text-white-50 my-4">Sorry, the page you are looking for does not exist or has been moved.</p>
-        <a href="index.html" class="btn btn-warning btn-lg px-4 rounded-pill">Go Home</a>
+<section class="py-5 text-center fade-in-section">
+  <div class="container">
+    <h1 class="display-4 fw-bold">Free Resources</h1>
+    <p class="lead text-white-50 mt-3">Download cheatsheets and guides to accelerate your learning.</p>
+  </div>
+</section>
+
+<section class="py-5 fade-in-section">
+  <div class="container">
+    <div class="row justify-content-end mb-4">
+      <div class="col-md-3">
+        <select class="form-select" id="resource-sort">
+          <option value="popular">Sort by: Most Popular</option>
+          <option value="newest">Sort by: Newest</option>
+        </select>
+      </div>
     </div>
+    <div class="row g-4 justify-content-center" id="resources-container">
+      <!-- Linux Cheatsheet -->
+      <div class="col-md-6 col-lg-4 resource-item" data-downloads="2500" data-date="2023-10-01">
+        <div class="card h-100 shadow border-0">
+          <span class="badge bg-secondary position-absolute top-0 end-0 m-3"><i class="bi bi-download me-1"></i> 2.5k</span>
+          <div class="card-body p-4 text-center">
+            <i class="devicon-linux-plain display-1 colored mb-3"></i>
+            <h4 class="card-title fw-bold">Linux Cheatsheet</h4>
+            <p class="card-text text-white-50 mb-4">Essential commands for system administration, file management, and permissions.</p>
+            <a href="#" class="btn btn-outline-warning w-100"><i class="bi bi-download me-2"></i>Download PDF</a>
+          </div>
+        </div>
+      </div>
+      <!-- Docker Cheatsheet -->
+      <div class="col-md-6 col-lg-4 resource-item" data-downloads="1800" data-date="2023-11-15">
+        <div class="card h-100 shadow border-0">
+          <span class="badge bg-secondary position-absolute top-0 end-0 m-3"><i class="bi bi-download me-1"></i> 1.8k</span>
+          <div class="card-body p-4 text-center">
+            <i class="devicon-docker-plain display-1 colored mb-3"></i>
+            <h4 class="card-title fw-bold">Docker Cheatsheet</h4>
+            <p class="card-text text-white-50 mb-4">Quick reference for Docker CLI, Dockerfile instructions, and Docker Compose.</p>
+            <a href="#" class="btn btn-outline-warning w-100"><i class="bi bi-download me-2"></i>Download PDF</a>
+          </div>
+        </div>
+      </div>
+      <!-- Git Cheatsheet (Bonus) -->
+      <div class="col-md-6 col-lg-4 resource-item" data-downloads="3100" data-date="2023-09-20">
+        <div class="card h-100 shadow border-0">
+          <span class="badge bg-secondary position-absolute top-0 end-0 m-3"><i class="bi bi-download me-1"></i> 3.1k</span>
+          <div class="card-body p-4 text-center">
+            <i class="devicon-git-plain display-1 colored mb-3"></i>
+            <h4 class="card-title fw-bold">Git Cheatsheet</h4>
+            <p class="card-text text-white-50 mb-4">Common Git commands for version control, branching, and merging.</p>
+            <a href="#" class="btn btn-outline-warning w-100"><i class="bi bi-download me-2"></i>Download PDF</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
 <footer class="py-5">
@@ -102,11 +152,13 @@
   </div>
 </div>
 
+<!-- Cookie Consent Banner -->
 <div class="cookie-banner" id="cookie-banner">
   <p class="mb-0 text-white-50 small">We use cookies to improve your experience. By using our site, you agree to our <a href="privacy-policy.html" class="text-warning">Privacy Policy</a>.</p>
   <button class="btn btn-warning btn-sm" id="accept-cookies">Accept</button>
 </div>
 
+<!-- Back to Top Button -->
 <a href="#" class="back-to-top btn btn-warning rounded-circle"><i class="bi bi-arrow-up"></i></a>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>

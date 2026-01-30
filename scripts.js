@@ -565,6 +565,7 @@ document.addEventListener('DOMContentLoaded', () => {
             { url: 'about.html', title: 'About Us', content: 'Team Mission Htet Oo Wai Yan Htet Oo Wai Yan David Smith' },
             { url: 'authors.html', title: 'Our Authors', content: 'Htet Oo Wai Yan Htet Oo Wai Yan Jane Doe' },
             { url: 'blog.html', title: 'Blog', content: 'Articles tutorials news DevOps, Kubernetes, Linux, Terraform, Docker, CI/CD, Monitoring' },
+            { url: 'resources.html', title: 'Resources', content: 'Free Resources Cheatsheets PDF Download Linux Docker Git' },
             { url: 'lsa.html', title: 'Linux System Administration', content: 'Linux administration users services networking security LVM firewalld' },
             { url: 'docker.html', title: 'Docker Administration', content: 'Container management images networking production Docker Compose' },
             { url: 'terraform.html', title: 'Terraform Beginner', content: 'Infrastructure as Code, IaC, providers, resources, modules' },
@@ -623,10 +624,112 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- Demo Modal Video Handler ---
     const demoModal = document.getElementById('demoModal');
     if (demoModal) {
-        demoModal.addEventListener('hidden.bs.modal', () => {
-            const iframe = demoModal.querySelector('iframe');
-            const src = iframe.src;
-            iframe.src = src; // Reset src to stop video playback
+        const iframe = demoModal.querySelector('iframe');
+        demoModal.addEventListener('show.bs.modal', () => {
+            if (iframe.dataset.src && !iframe.src) {
+                iframe.src = iframe.dataset.src;
+            }
         });
+        demoModal.addEventListener('hidden.bs.modal', () => {
+            iframe.src = ''; // Stop video playback and unload resource
+        });
+    }
+
+    // --- Resources Sorting ---
+    const resourceSortSelect = document.getElementById('resource-sort');
+    if (resourceSortSelect) {
+        const resourceContainer = document.getElementById('resources-container');
+        const resourceItems = Array.from(resourceContainer.querySelectorAll('.resource-item'));
+
+        resourceSortSelect.addEventListener('change', () => {
+            const sortValue = resourceSortSelect.value;
+
+            const sortedItems = resourceItems.sort((a, b) => {
+                if (sortValue === 'popular') {
+                    return b.dataset.downloads - a.dataset.downloads;
+                } else if (sortValue === 'newest') {
+                    return new Date(b.dataset.date) - new Date(a.dataset.date);
+                }
+            });
+
+            sortedItems.forEach(item => resourceContainer.appendChild(item));
+        });
+        
+        // Trigger initial sort (Popular)
+        resourceSortSelect.dispatchEvent(new Event('change'));
+    }
+
+    // --- Dynamic Course Loading (Skeleton Demo) ---
+    const coursesContainer = document.getElementById('courses-container');
+    if (coursesContainer) {
+        const courses = [
+            {
+                title: "Linux System Administration",
+                icon: "devicon-linux-plain",
+                desc: "Master Linux administration, users, services, networking, and security.",
+                link: "lsa.html",
+                badge: null
+            },
+            {
+                title: "Docker Administration",
+                icon: "devicon-docker-plain",
+                desc: "Container management, images, networking, and production Docker.",
+                link: "docker.html",
+                badge: null
+            },
+            {
+                title: "Terraform Beginner",
+                icon: "devicon-terraform-plain",
+                desc: "Infrastructure as Code",
+                link: "terraform.html",
+                badge: null
+            },
+            {
+                title: "DevOps Fundamentals",
+                icon: "devicon-git-plain",
+                desc: "Linux, Git, CI/CD basics, Docker introduction.",
+                link: "devops-fundamentals.html",
+                badge: null
+            },
+            {
+                title: "AWS DevOps",
+                icon: "devicon-amazonwebservices-plain-wordmark",
+                desc: "EC2, VPC, IAM, CI/CD, EKS, Terraform.",
+                link: "aws-devops.html",
+                badge: "Popular",
+                badgeClass: "badge-gradient"
+            },
+            {
+                title: "Kubernetes Mastery",
+                icon: "devicon-kubernetes-plain",
+                desc: "Docker, K8s, Helm, Monitoring, Production setups.",
+                link: "kubernetes-mastery.html",
+                badge: "New",
+                badgeClass: "bg-danger"
+            }
+        ];
+
+        // Simulate network delay to show skeleton state
+        setTimeout(() => {
+            coursesContainer.innerHTML = ''; // Clear skeletons
+            courses.forEach(course => {
+                const col = document.createElement('div');
+                col.className = 'col-md-4 fade-in-section is-visible';
+                const badgeHtml = course.badge ? `<span class="badge ${course.badgeClass || 'bg-primary'} position-absolute top-0 end-0 m-3">${course.badge}</span>` : '';
+                
+                col.innerHTML = `
+                    <div class="card h-100 shadow">
+                        ${badgeHtml}
+                        <div class="card-body d-flex flex-column text-center p-4">
+                            <i class="${course.icon} display-4 colored mb-3"></i>
+                            <h5 class="card-title fw-bold text-warning">${course.title}</h5>
+                            <p class="card-text text-white-50">${course.desc}</p>
+                            <a href="${course.link}" class="btn btn-outline-warning mt-auto">Learn More</a>
+                        </div>
+                    </div>
+                `;
+                coursesContainer.appendChild(col);
+            });
+        }, 1500);
     }
 });
