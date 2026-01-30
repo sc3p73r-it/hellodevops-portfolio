@@ -1,12 +1,12 @@
 :root {
-  --bg-color: #111827;
-  --bg-color-lighter: #1f2937;
-  --text-color: #f8f9fa;
-  --text-color-muted: #6b7280;
-  --text-color-muted-light: #adb5bd;
-  --border-color: rgba(255, 255, 255, 0.1);
-  --card-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
-  --navbar-bg: rgba(17, 24, 39, 0.8);
+  --bg-color: #000000;
+  --bg-color-lighter: #111111;
+  --text-color: #ffffff;
+  --text-color-muted: #9ca3af;
+  --text-color-muted-light: #d1d5db;
+  --border-color: rgba(255, 255, 255, 0.15);
+  --card-shadow: 0 8px 25px rgba(0, 0, 0, 0.8);
+  --navbar-bg: rgba(0, 0, 0, 0.9);
   --form-border-color: #4b5563;
   --accordion-icon-filter: invert(1) grayscale(100%) brightness(200%);
 }
@@ -40,7 +40,7 @@ body.home-page {
 }
 
 .gradient-text {
-  background: linear-gradient(90deg, #ffc107, #fd7e14);
+  background: linear-gradient(90deg, #ffffff, #60a5fa);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -93,9 +93,9 @@ footer {
 
 .form-control:focus {
     background-color: var(--bg-color-lighter);
-    border-color: #ffc107;
+    border-color: #60a5fa;
     color: var(--text-color);
-    box-shadow: 0 0 0 0.25rem rgba(255, 193, 7, 0.25);
+    box-shadow: 0 0 0 0.25rem rgba(96, 165, 250, 0.25);
 }
 
 .form-control::placeholder {
@@ -113,14 +113,14 @@ footer {
 }
 
 .accordion-button:not(.collapsed) {
-    color: #ffc107;
+    color: #60a5fa;
     background-color: var(--bg-color);
     box-shadow: inset 0 -1px 0 var(--border-color);
 }
 
 .accordion-button:focus {
-    box-shadow: 0 0 0 0.25rem rgba(255, 193, 7, 0.25);
-    border-color: #ffc107;
+    box-shadow: 0 0 0 0.25rem rgba(96, 165, 250, 0.25);
+    border-color: #60a5fa;
 }
 
 .accordion-button::after {
@@ -190,8 +190,8 @@ footer {
 
 .copy-code-btn:hover {
     background-color: var(--bg-color);
-    color: #ffc107;
-    border-color: #ffc107;
+    color: #ffffff;
+    border-color: #ffffff;
 }
 
 /* Theme Toggle */
@@ -297,7 +297,7 @@ footer a.text-white-50:hover {
   width: 50px;
   height: 50px;
   border: 5px solid var(--text-color-muted);
-  border-top-color: #ffc107;
+  border-top-color: #ffffff;
   border-radius: 50%;
   animation: spin 1s linear infinite;
 }
@@ -345,11 +345,11 @@ footer a.text-white-50:hover {
 }
 
 #toc-container .toc-link.active {
-    color: #ffc107 !important;
+    color: #60a5fa !important;
     font-weight: 600;
-    border-left: 3px solid #ffc107;
+    border-left: 3px solid #60a5fa;
     padding-left: 0.5rem;
-    background-color: rgba(255, 193, 7, 0.1);
+    background-color: rgba(96, 165, 250, 0.1);
 }
 
 /* Pagination Customization */
@@ -362,13 +362,13 @@ footer a.text-white-50:hover {
 
 .pagination .page-link:hover {
     background-color: var(--bg-color);
-    color: #ffc107;
-    border-color: #ffc107;
+    color: #ffffff;
+    border-color: #ffffff;
 }
 
 .pagination .page-item.active .page-link {
-    background-color: #ffc107;
-    border-color: #ffc107;
+    background-color: #ffffff;
+    border-color: #ffffff;
     color: #111827; /* Dark text for contrast */
 }
 
@@ -401,8 +401,8 @@ footer a.text-white-50:hover {
 
 .tag-filter-btn.active {
     color: #111827;
-    background-color: #ffc107;
-    border-color: #ffc107;
+    background-color: #ffffff;
+    border-color: #ffffff;
     font-weight: 600;
 }
 
@@ -419,7 +419,7 @@ footer a.text-white-50:hover {
 
 .scroll-progress-bar {
     height: 100%;
-    background: #ffc107;
+    background: #60a5fa;
     width: 0%;
 }
 
@@ -429,6 +429,35 @@ footer a.text-white-50:hover {
 }
 
 .tool-icons i:hover {
-    color: #ffc107 !important;
+    color: #60a5fa !important;
     transform: scale(1.1);
+}
+
+/* HashiCorp Theme Overrides */
+.text-warning {
+    color: #60a5fa !important; /* Light Blue accent */
+}
+
+.btn-warning {
+    background-color: #ffffff;
+    border-color: #ffffff;
+    color: #000000;
+    font-weight: 600;
+}
+
+.btn-warning:hover {
+    background-color: #e5e7eb;
+    border-color: #e5e7eb;
+    color: #000000;
+}
+
+.btn-outline-warning {
+    color: #ffffff;
+    border-color: #ffffff;
+}
+
+.btn-outline-warning:hover {
+    background-color: #ffffff;
+    color: #000000;
+    border-color: #ffffff;
 }
