@@ -612,4 +612,21 @@ document.addEventListener('DOMContentLoaded', () => {
             searchResultsContainer.innerHTML = '<p class="lead text-white-50">No results found for your query.</p>';
         }
     }
+
+    // --- Parallax Background Effect ---
+    window.addEventListener('scroll', () => {
+        const scrolled = window.scrollY;
+        // Move the gradient background slightly based on scroll position
+        document.documentElement.style.setProperty('--scroll-offset', `${scrolled * 0.1}px`);
+    });
+
+    // --- Demo Modal Video Handler ---
+    const demoModal = document.getElementById('demoModal');
+    if (demoModal) {
+        demoModal.addEventListener('hidden.bs.modal', () => {
+            const iframe = demoModal.querySelector('iframe');
+            const src = iframe.src;
+            iframe.src = src; // Reset src to stop video playback
+        });
+    }
 });

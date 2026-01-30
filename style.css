@@ -1,27 +1,17 @@
 :root {
-<<<<<<< HEAD
   --bg-color: #000000;
   --bg-color-lighter: #111111;
+  --card-bg: rgba(255, 255, 255, 0.05);
   --text-color: #ffffff;
   --text-color-muted: #9ca3af;
   --text-color-muted-light: #d1d5db;
   --border-color: rgba(255, 255, 255, 0.15);
   --card-shadow: 0 8px 25px rgba(0, 0, 0, 0.8);
   --navbar-bg: rgba(0, 0, 0, 0.9);
-=======
-  --bg-color: #111827;
-  --bg-color-lighter: #1f2937;
-  --card-bg: rgba(31, 41, 55, 0.6);
-  --text-color: #f8f9fa;
-  --text-color-muted: #6b7280;
-  --text-color-muted-light: #adb5bd;
-  --border-color: rgba(255, 255, 255, 0.1);
-  --card-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
-  --navbar-bg: rgba(17, 24, 39, 0.8);
->>>>>>> 3bf55b78ba50e2cd80ca1d36bfa0958b01d5711f
   --form-border-color: #4b5563;
   --accordion-icon-filter: invert(1) grayscale(100%) brightness(200%);
-  --bg-image: radial-gradient(circle at 50% 0%, #2d2d2d 0%, #000000 100%);
+  --scroll-offset: 0px;
+  --bg-image: radial-gradient(at 0% calc(0% + var(--scroll-offset)), rgba(62, 165, 209, 0.15) 0px, transparent 20%), radial-gradient(at 100% calc(0% - var(--scroll-offset)), rgba(168, 85, 247, 0.15) 0px, transparent 20%), radial-gradient(at 100% calc(100% + var(--scroll-offset)), rgba(236, 72, 153, 0.15) 0px, transparent 30%), radial-gradient(at 0% calc(100% - var(--scroll-offset)), rgba(34, 211, 238, 0.15) 0px, transparent 10%);
 }
 
 body.light-mode {
@@ -71,17 +61,17 @@ body.home-page {
 }
 
 .card {
-  background-color: var(--card-bg);
-  border: 1px solid var(--border-color);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  background-color: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(30px) saturate(150%);
+  -webkit-backdrop-filter: blur(30px) saturate(150%);
   transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
 .card:hover {
   transform: translateY(-8px);
-  box-shadow: var(--card-shadow), 0 0 20px rgba(255, 193, 7, 0.2);
-  border-color: rgba(255, 193, 7, 0.4);
+  box-shadow: var(--card-shadow), 0 0 25px rgba(96, 165, 250, 0.5);
+  border-color: rgba(96, 165, 250, 0.5);
 }
 
 .section-padding {
@@ -122,13 +112,8 @@ footer {
 }
 
 .form-control:focus {
-<<<<<<< HEAD
     background-color: var(--bg-color-lighter);
     border-color: #60a5fa;
-=======
-    background-color: var(--card-bg);
-    border-color: #ffc107;
->>>>>>> 3bf55b78ba50e2cd80ca1d36bfa0958b01d5711f
     color: var(--text-color);
     box-shadow: 0 0 0 0.25rem rgba(96, 165, 250, 0.25);
 }
@@ -150,13 +135,8 @@ footer {
 }
 
 .accordion-button:not(.collapsed) {
-<<<<<<< HEAD
     color: #60a5fa;
     background-color: var(--bg-color);
-=======
-    color: #ffc107;
-    background-color: rgba(0, 0, 0, 0.2);
->>>>>>> 3bf55b78ba50e2cd80ca1d36bfa0958b01d5711f
     box-shadow: inset 0 -1px 0 var(--border-color);
 }
 
@@ -485,11 +465,7 @@ footer a.text-white-50:hover {
 }
 
 .tool-icons i:hover {
-<<<<<<< HEAD
     color: #60a5fa !important;
-=======
-    filter: grayscale(0%);
-    opacity: 1;
     transform: scale(1.1);
 }
 
@@ -500,12 +476,20 @@ footer a.text-white-50:hover {
     transition: filter 0.3s ease, transform 0.3s ease, opacity 0.3s ease;
     filter: grayscale(100%);
     opacity: 0.7;
+    position: relative;
+    animation: float 3s ease-in-out infinite;
 }
+
+.tool-icons-hero i:nth-child(1) { animation-delay: 0s; }
+.tool-icons-hero i:nth-child(2) { animation-delay: -0.5s; }
+.tool-icons-hero i:nth-child(3) { animation-delay: -1s; }
+.tool-icons-hero i:nth-child(4) { animation-delay: -1.5s; }
+.tool-icons-hero i:nth-child(5) { animation-delay: -2s; }
+.tool-icons-hero i:nth-child(6) { animation-delay: -2.5s; }
 
 .tool-icons-hero i:hover {
     filter: grayscale(0%);
     opacity: 1;
->>>>>>> 3bf55b78ba50e2cd80ca1d36bfa0958b01d5711f
     transform: scale(1.1);
 }
 
@@ -536,4 +520,50 @@ footer a.text-white-50:hover {
     background-color: #ffffff;
     color: #000000;
     border-color: #ffffff;
+}
+
+/* 3D Motion Effect for Hero Text */
+.hero-text-3d {
+  display: inline-block;
+  position: relative;
+  transform-style: preserve-3d;
+  perspective: 500px;
+  animation: float-3d 6s ease-in-out infinite;
+}
+
+@keyframes float-3d {
+  0%, 100% {
+    transform: translateY(0) rotateX(0deg) rotateY(0deg);
+    filter: drop-shadow(0 5px 5px rgba(96, 165, 250, 0.3));
+  }
+  25% {
+    transform: translateY(-2px) rotateX(2deg) rotateY(2deg);
+    filter: drop-shadow(-5px 15px 10px rgba(96, 165, 250, 0.3));
+  }
+  50% {
+    transform: translateY(0) rotateX(0deg) rotateY(0deg);
+    filter: drop-shadow(0 5px 5px rgba(96, 165, 250, 0.3));
+  }
+  75% {
+    transform: translateY(-2px) rotateX(-2deg) rotateY(-2deg);
+    filter: drop-shadow(5px 15px 10px rgba(96, 165, 250, 0.3));
+  }
+}
+
+/* Floating Animation for Icons */
+@keyframes float {
+    0%, 100% { top: 0; text-shadow: 0 5px 5px rgba(96, 165, 250, 0.4); }
+    50% { top: -5px; text-shadow: 0 15px 10px rgba(96, 165, 250, 0.2); }
+}
+
+/* Fix Linux icon visibility on dark background */
+body:not(.light-mode) .devicon-linux-plain.colored {
+    color: #ffffff !important;
+}
+
+.badge-gradient {
+  background: linear-gradient(135deg, #f59e0b, #ef4444);
+  color: white;
+  border: none;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
