@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.hellodevops.com/sitemap.xml
+Sitemap: https://training.vitaltechmyanmar.com/sitemap.xml

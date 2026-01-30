@@ -9,6 +9,7 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
 </head>
 <body class="home-page">
 
@@ -19,7 +20,10 @@
 
 <nav class="navbar navbar-dark fixed-top navbar-on-scroll">
   <div class="container">
-    <a class="navbar-brand fw-bold" href="index.html">← Hello<span class="text-warning">DevOps</span></a>
+    <a class="navbar-brand fw-bold d-flex flex-column" href="index.html" style="line-height: 1.2;">
+      <span>← Hello<span class="text-warning">DevOps</span></span>
+      <span class="small text-white-50" style="font-size: 0.6rem; font-weight: normal;">Part of Vital Tech Myanmar</span>
+    </a>
     <div class="d-flex align-items-center">
       <i class="bi bi-moon-stars-fill me-2" id="theme-toggle-icon"></i>
       <div class="form-check form-switch">
@@ -51,7 +55,7 @@
         <div class="row g-4">
           <div class="col-md-6">
             <div class="d-flex">
-              <i class="bi bi-git fs-2 text-warning me-3"></i>
+              <i class="devicon-git-plain fs-2 text-warning me-3"></i>
               <div>
                 <h5 class="fw-bold">Learn Version Control</h5>
                 <p class="text-white-50">Master Git and GitHub to manage code and collaborate effectively with teams.</p>
@@ -60,7 +64,7 @@
           </div>
           <div class="col-md-6">
             <div class="d-flex">
-              <i class="bi bi-terminal fs-2 text-warning me-3"></i>
+              <i class="devicon-linux-plain fs-2 text-warning me-3"></i>
               <div>
                 <h5 class="fw-bold">Master Linux Basics</h5>
                 <p class="text-white-50">Gain confidence with the command line, an essential skill for any DevOps role.</p>
@@ -69,7 +73,7 @@
           </div>
           <div class="col-md-6">
             <div class="d-flex">
-              <i class="bi bi-robot fs-2 text-warning me-3"></i>
+              <i class="devicon-githubactions-plain fs-2 text-warning me-3"></i>
               <div>
                 <h5 class="fw-bold">Understand CI/CD</h5>
                 <p class="text-white-50">Learn the core concepts of Continuous Integration and Continuous Deployment pipelines.</p>
@@ -78,7 +82,7 @@
           </div>
           <div class="col-md-6">
             <div class="d-flex">
-              <i class="bi bi-box-seam fs-2 text-warning me-3"></i>
+              <i class="devicon-docker-plain fs-2 text-warning me-3"></i>
               <div>
                 <h5 class="fw-bold">Get Started with Docker</h5>
                 <p class="text-white-50">Get a hands-on introduction to containerization and run your first Docker container.</p>
@@ -143,6 +147,19 @@
     </div>
 </section>
 
+<!-- Tools You'll Master -->
+<section class="py-5 bg-lighter fade-in-section">
+    <div class="container text-center">
+        <h2 class="fw-bold">Tools You'll Master</h2>
+        <div class="d-flex flex-wrap justify-content-center align-items-center mt-4 tool-icons">
+            <i class="devicon-linux-plain colored fs-1 mx-3 my-2" title="Linux"></i>
+            <i class="devicon-git-plain colored fs-1 mx-3 my-2" title="Git"></i>
+            <i class="devicon-github-original colored fs-1 mx-3 my-2" title="GitHub"></i>
+            <i class="devicon-docker-plain colored fs-1 mx-3 my-2" title="Docker"></i>
+        </div>
+    </div>
+</section>
+
 <!-- Detailed Curriculum -->
 <section class="py-5 fade-in-section">
     <div class="container">
@@ -188,11 +205,11 @@
         <div class="row justify-content-center">
             <div class="col-lg-8 text-center">
                 <h2 class="fw-bold">Meet Your Instructor</h2>
-                <img src="https://i.pravatar.cc/150?u=sarah" class="rounded-circle my-4" alt="Sarah Jenkins" width="150" height="150">
-                <h4 class="text-warning">Sarah Jenkins</h4>
+                <img src="https://i.pravatar.cc/150?u=robin" class="rounded-circle my-4" alt="Htet Oo Wai Yan" width="150" height="150">
+                <h4 class="text-warning">Htet Oo Wai Yan</h4>
                 <p class="text-white-50 fw-bold">Instructor & Cloud Engineer</p>
-                <p class="text-white-50">Sarah specializes in Linux administration and Infrastructure as Code. She has a knack for breaking down complex topics into easy-to-understand concepts, making her a favorite among beginners.</p>
-                <a href="authors.html#sarah-jenkins" class="btn btn-outline-warning mt-2">View Profile</a>
+                <p class="text-white-50">With over 6 years of experience in linux system and automation, Htet is an expert in Docker, Kubernetes AWS, and building scalable CI/CD pipelines. He is passionate about sharing his real-world knowledge to help students succeed.</p>
+                <a href="authors.html#wai-yan" class="btn btn-outline-warning mt-2">View Profile</a>
             </div>
         </div>
     </div>
@@ -286,7 +303,7 @@
     </div>
     <hr class="my-4" style="border-color: var(--border-color);">
     <div class="d-flex flex-column flex-sm-row justify-content-between align-items-center">
-        <p class="mb-3 mb-sm-0 text-white-50 small">© 2026 HelloDevOps. All Rights Reserved.</p>
+        <p class="mb-3 mb-sm-0 text-white-50 small">© 2026 HelloDevOps. Part of <a href="https://vitaltechmyanmar.com" class="text-white-50 text-decoration-none">Vital Tech Myanmar</a>. All Rights Reserved.</p>
         <div class="d-flex align-items-center">
             <a href="terms-of-service.html" class="text-white-50 text-decoration-none small me-3">Terms of Service</a>
             <a href="privacy-policy.html" class="text-white-50 text-decoration-none small me-4">Privacy Policy</a>
