@@ -98,7 +98,7 @@
             <p class="text-white-50"><strong>Last Updated:</strong> Nov 2023</p>
             <p class="text-white-50"><strong>Level:</strong> Advanced</p>
             <p class="text-white-50 mb-4"><strong>Prerequisites:</strong> Docker, Linux, Networking Basics</p>
-            <a href="#" class="btn btn-outline-warning w-100 mb-2"><i class="bi bi-file-earmark-pdf me-2"></i>Download Syllabus</a>
+            <a href="#" class="btn btn-outline-warning w-100 mb-2" data-bs-toggle="modal" data-bs-target="#syllabusModal"><i class="bi bi-file-earmark-pdf me-2"></i>Download Syllabus</a>
             <a href="#" class="btn btn-warning w-100">Enroll Now</a>
           </div>
         </div>
@@ -315,6 +315,24 @@
     </div>
   </div>
 </footer>
+
+<!-- Syllabus Modal -->
+<div class="modal fade" id="syllabusModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content bg-dark text-light border-secondary">
+      <div class="modal-header border-secondary">
+        <h5 class="modal-title">Syllabus Downloaded</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body text-center py-4">
+        <i class="bi bi-check-circle-fill text-success display-1 mb-3"></i>
+        <h4 class="fw-bold">Success!</h4>
+        <p class="text-white-50 mb-4">The detailed course syllabus has been saved to your device.</p>
+        <button type="button" class="btn btn-outline-light w-100" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 <!-- Contact Modal -->
 <div class="modal fade" id="contactModal" tabindex="-1" aria-hidden="true">
