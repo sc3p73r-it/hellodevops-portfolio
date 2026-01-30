@@ -11,7 +11,7 @@
   --form-border-color: #4b5563;
   --accordion-icon-filter: invert(1) grayscale(100%) brightness(200%);
   --scroll-offset: 0px;
-  --bg-image: radial-gradient(at 0% calc(0% + var(--scroll-offset)), rgba(62, 165, 209, 0.15) 0px, transparent 20%), radial-gradient(at 100% calc(0% - var(--scroll-offset)), rgba(168, 85, 247, 0.15) 0px, transparent 20%), radial-gradient(at 100% calc(100% + var(--scroll-offset)), rgba(236, 72, 153, 0.15) 0px, transparent 30%), radial-gradient(at 0% calc(100% - var(--scroll-offset)), rgba(34, 211, 238, 0.15) 0px, transparent 10%);
+  --bg-image: radial-gradient(at 0% calc(0% + var(--scroll-offset)), rgba(62, 165, 209, 0.15) 0px, transparent 20%), radial-gradient(at 80% calc(0% - var(--scroll-offset)), rgba(168, 85, 247, 0.15) 0px, transparent 10%), radial-gradient(at 100% calc(100% + var(--scroll-offset)), rgba(236, 72, 153, 0.15) 0px, transparent 10%), radial-gradient(at 0% calc(100% - var(--scroll-offset)), rgba(34, 211, 238, 0.15) 0px, transparent 8%);
 }
 
 body.light-mode {
