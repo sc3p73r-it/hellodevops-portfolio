@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Admin Portal | HelloDevOps</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .admin-container { max-width: 1200px; margin: 50px auto; }
+    .admin-card { background: var(--bg-color-lighter); border: 1px solid var(--border-color); }
+    .nav-tabs .nav-link { color: var(--text-color-muted); }
+    .nav-tabs .nav-link.active { background-color: var(--bg-color-lighter); color: var(--text-color); border-color: var(--border-color); border-bottom-color: transparent; }
+    .table { color: var(--text-color); }
+    .table td, .table th { border-color: var(--border-color); }
+  </style>
+</head>
+<body>
+
+<!-- Login Section -->
+<div id="login-section" class="d-flex align-items-center justify-content-center vh-100">
+    <div class="card admin-card p-4 shadow-lg" style="width: 400px;">
+        <h3 class="text-center mb-4 fw-bold">Admin Login</h3>
+        <form id="admin-login-form">
+            <div class="mb-3">
+                <label class="form-label">Password</label>
+                <input type="password" class="form-control" id="admin-password" placeholder="Enter password (admin123)" required>
+            </div>
+            <button type="submit" class="btn btn-warning w-100">Login</button>
+        </form>
+    </div>
+</div>
+
+<!-- Dashboard Section -->
+<div id="dashboard-section" class="d-none">
+    <nav class="navbar navbar-dark bg-dark border-bottom border-secondary">
+        <div class="container-fluid">
+            <span class="navbar-brand mb-0 h1">HelloDevOps <span class="text-warning">Admin</span></span>
+            <div class="d-flex align-items-center gap-2">
+                <button class="btn btn-outline-success btn-sm" onclick="exportData()" title="Download Data"><i class="bi bi-download"></i> Export</button>
+                <label class="btn btn-outline-primary btn-sm mb-0" title="Upload Data" style="cursor: pointer;">
+                    <i class="bi bi-upload"></i> Import <input type="file" id="import-file" accept=".json" hidden onchange="importData(this)">
+                </label>
+                <div class="vr bg-secondary mx-1"></div>
+                <a href="index.html" class="btn btn-outline-light btn-sm" target="_blank">View Site</a>
+                <button class="btn btn-outline-danger btn-sm" id="logout-btn">Logout</button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container admin-container">
+        <ul class="nav nav-tabs mb-4" id="adminTabs" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="courses-tab" data-bs-toggle="tab" data-bs-target="#courses-pane" type="button">Manage Courses</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="blog-tab" data-bs-toggle="tab" data-bs-target="#blog-pane" type="button">Manage Blog</button>
+            </li>
+        </ul>
+
+        <div class="tab-content">
+            <!-- Courses Tab -->
+            <div class="tab-pane fade show active" id="courses-pane">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h4>All Courses</h4>
+                    <button class="btn btn-warning btn-sm" onclick="openCourseModal()">+ Add Course</button>
+                </div>
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>Title</th>
+                                <th>Description</th>
+                                <th>Badge</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="courses-table-body"></tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Blog Tab -->
+            <div class="tab-pane fade" id="blog-pane">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h4>All Blog Posts</h4>
+                    <button class="btn btn-warning btn-sm" onclick="openBlogModal()">+ Add Post</button>
+                </div>
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>Title</th>
+                                <th>Date</th>
+                                <th>Tags</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="blog-table-body"></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Course Modal -->
+<div class="modal fade" id="courseModal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Edit Course</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <form id="course-form">
+                    <input type="hidden" id="course-id">
+                    <div class="mb-3">
+                        <label class="form-label">Title</label>
+                        <input type="text" class="form-control" id="course-title" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Description</label>
+                        <textarea class="form-control" id="course-desc" required></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Icon Class (Devicon)</label>
+                        <input type="text" class="form-control" id="course-icon" placeholder="devicon-linux-plain">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Badge Text (Optional)</label>
+                        <input type="text" class="form-control" id="course-badge">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Link</label>
+                        <input type="text" class="form-control" id="course-link" value="#">
+                    </div>
+                    <div class="d-flex gap-2">
+                        <button type="button" class="btn btn-outline-info w-50" onclick="previewCourse()">Preview</button>
+                        <button type="submit" class="btn btn-warning w-50">Save Course</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Blog Modal -->
+<div class="modal fade" id="blogModal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Edit Post</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <form id="blog-form">
+                    <input type="hidden" id="blog-id">
+                    <div class="mb-3">
+                        <label class="form-label">Title</label>
+                        <input type="text" class="form-control" id="blog-title" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Description</label>
+                        <textarea class="form-control" id="blog-desc" required></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Tags (comma separated)</label>
+                        <input type="text" class="form-control" id="blog-tags" placeholder="docker, linux">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Date</label>
+                        <input type="date" class="form-control" id="blog-date" required>
+                    </div>
+                    <button type="submit" class="btn btn-warning w-100">Save Post</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Course Preview Modal -->
+<div class="modal fade" id="coursePreviewModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header border-bottom border-secondary">
+                <h5 class="modal-title">Course Preview</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body d-flex justify-content-center p-4" id="course-preview-container">
+                <!-- Preview Card Rendered Here -->
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="scripts.js"></script>
+<script>
+    // Admin Logic
+    const loginSection = document.getElementById('login-section');
+    const dashboardSection = document.getElementById('dashboard-section');
+    const loginForm = document.getElementById('admin-login-form');
+    const logoutBtn = document.getElementById('logout-btn');
+
+    // Check Auth
+    if (localStorage.getItem('admin_auth') === 'true') {
+        showDashboard();
+    }
+
+    loginForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const password = document.getElementById('admin-password').value;
+        if (password === 'admin123') {
+            localStorage.setItem('admin_auth', 'true');
+            showDashboard();
+        } else {
+            alert('Invalid password');
+        }
+    });
+
+    logoutBtn.addEventListener('click', () => {
+        localStorage.removeItem('admin_auth');
+        location.reload();
+    });
+
+    function showDashboard() {
+        loginSection.classList.add('d-none');
+        dashboardSection.classList.remove('d-none');
+        renderCoursesTable();
+        renderBlogTable();
+    }
+
+    // --- Courses Management ---
+    const courseModal = new bootstrap.Modal(document.getElementById('courseModal'));
+    const coursePreviewModal = new bootstrap.Modal(document.getElementById('coursePreviewModal'));
+    
+    function renderCoursesTable() {
+        const courses = DataManager.getCourses();
+        const tbody = document.getElementById('courses-table-body');
+        tbody.innerHTML = courses.map((c, index) => `
+            <tr>
+                <td>${c.title}</td>
+                <td>${c.desc.substring(0, 50)}...</td>
+                <td>${c.badge || '-'}</td>
+                <td>
+                    <button class="btn btn-sm btn-outline-info me-1" onclick="editCourse(${index})"><i class="bi bi-pencil"></i></button>
+                    <button class="btn btn-sm btn-outline-danger" onclick="deleteCourse(${index})"><i class="bi bi-trash"></i></button>
+                </td>
+            </tr>
+        `).join('');
+    }
+
+    window.openCourseModal = (index = null) => {
+        document.getElementById('course-form').reset();
+        document.getElementById('course-id').value = index !== null ? index : '';
+        if (index !== null) {
+            const course = DataManager.getCourses()[index];
+            document.getElementById('course-title').value = course.title;
+            document.getElementById('course-desc').value = course.desc;
+            document.getElementById('course-icon').value = course.icon;
+            document.getElementById('course-badge').value = course.badge || '';
+            document.getElementById('course-link').value = course.link;
+        }
+        courseModal.show();
+    };
+
+    window.previewCourse = () => {
+        const title = document.getElementById('course-title').value;
+        const desc = document.getElementById('course-desc').value;
+        const icon = document.getElementById('course-icon').value || 'devicon-linux-plain';
+        const badge = document.getElementById('course-badge').value;
+        
+        const badgeHtml = badge ? `<span class="badge badge-gradient position-absolute top-0 end-0 m-3">${badge}</span>` : '';
+
+        // Replicate the card HTML structure from scripts.js
+        const previewHtml = `
+            <div class="card h-100 shadow" style="width: 100%; max-width: 350px;">
+                ${badgeHtml}
+                <div class="card-body d-flex flex-column text-center p-4">
+                    <i class="${icon} display-4 colored mb-3"></i>
+                    <h5 class="card-title fw-bold text-warning">${title || 'Course Title'}</h5>
+                    <p class="card-text text-white-50">${desc || 'Course description...'}</p>
+                    <a href="#" class="btn btn-outline-warning mt-auto">Learn More</a>
+                </div>
+            </div>
+        `;
+
+        document.getElementById('course-preview-container').innerHTML = previewHtml;
+        coursePreviewModal.show();
+    };
+
+    window.editCourse = (index) => openCourseModal(index);
+
+    window.deleteCourse = (index) => {
+        if(confirm('Delete this course?')) {
+            const courses = DataManager.getCourses();
+            courses.splice(index, 1);
+            DataManager.saveCourses(courses);
+            renderCoursesTable();
+        }
+    };
+
+    document.getElementById('course-form').addEventListener('submit', (e) => {
+        e.preventDefault();
+        const courses = DataManager.getCourses();
+        const id = document.getElementById('course-id').value;
+        const newCourse = {
+            title: document.getElementById('course-title').value,
+            desc: document.getElementById('course-desc').value,
+            icon: document.getElementById('course-icon').value,
+            badge: document.getElementById('course-badge').value || null,
+            badgeClass: 'badge-gradient', // Default style
+            link: document.getElementById('course-link').value
+        };
+
+        if (id !== '') {
+            courses[id] = newCourse;
+        } else {
+            courses.push(newCourse);
+        }
+        DataManager.saveCourses(courses);
+        courseModal.hide();
+        renderCoursesTable();
+    });
+
+    // --- Blog Management ---
+    const blogModal = new bootstrap.Modal(document.getElementById('blogModal'));
+
+    function renderBlogTable() {
+        const posts = DataManager.getPosts();
+        const tbody = document.getElementById('blog-table-body');
+        tbody.innerHTML = posts.map((p, index) => `
+            <tr>
+                <td>${p.title}</td>
+                <td>${p.date}</td>
+                <td>${p.tags}</td>
+                <td>
+                    <button class="btn btn-sm btn-outline-info me-1" onclick="editPost(${index})"><i class="bi bi-pencil"></i></button>
+                    <button class="btn btn-sm btn-outline-danger" onclick="deletePost(${index})"><i class="bi bi-trash"></i></button>
+                </td>
+            </tr>
+        `).join('');
+    }
+
+    window.openBlogModal = (index = null) => {
+        document.getElementById('blog-form').reset();
+        document.getElementById('blog-id').value = index !== null ? index : '';
+        if (index !== null) {
+            const post = DataManager.getPosts()[index];
+            document.getElementById('blog-title').value = post.title;
+            document.getElementById('blog-desc').value = post.desc;
+            document.getElementById('blog-tags').value = post.tags;
+            document.getElementById('blog-date').value = post.date;
+        }
+        blogModal.show();
+    };
+
+    window.editPost = (index) => openBlogModal(index);
+
+    window.deletePost = (index) => {
+        if(confirm('Delete this post?')) {
+            const posts = DataManager.getPosts();
+            posts.splice(index, 1);
+            DataManager.savePosts(posts);
+            renderBlogTable();
+        }
+    };
+
+    document.getElementById('blog-form').addEventListener('submit', (e) => {
+        e.preventDefault();
+        const posts = DataManager.getPosts();
+        const id = document.getElementById('blog-id').value;
+        const newPost = {
+            title: document.getElementById('blog-title').value,
+            desc: document.getElementById('blog-desc').value,
+            tags: document.getElementById('blog-tags').value,
+            date: document.getElementById('blog-date').value,
+            author: 'wai-yan', // Default author
+            link: 'blog-post-1.html' // Default link
+        };
+
+        if (id !== '') {
+            posts[id] = newPost;
+        } else {
+            posts.push(newPost);
+        }
+        DataManager.savePosts(posts);
+        blogModal.hide();
+        renderBlogTable();
+    });
+
+    // --- Flat File Data Store (Import/Export) ---
+    window.exportData = () => {
+        const data = {
+            courses: DataManager.getCourses(),
+            posts: DataManager.getPosts()
+        };
+        const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(data, null, 2));
+        const downloadAnchorNode = document.createElement('a');
+        downloadAnchorNode.setAttribute("href", dataStr);
+        downloadAnchorNode.setAttribute("download", "hellodevops_data.json");
+        document.body.appendChild(downloadAnchorNode);
+        downloadAnchorNode.click();
+        downloadAnchorNode.remove();
+    };
+
+    window.importData = (input) => {
+        const file = input.files[0];
+        if (!file) return;
+
+        if (!confirm('Importing data will overwrite current changes. Continue?')) {
+            input.value = '';
+            return;
+        }
+
+        const reader = new FileReader();
+        reader.onload = (e) => {
+            try {
+                const data = JSON.parse(e.target.result);
+                if (data.courses && Array.isArray(data.courses)) DataManager.saveCourses(data.courses);
+                if (data.posts && Array.isArray(data.posts)) DataManager.savePosts(data.posts);
+                alert('Data imported successfully!');
+                renderCoursesTable();
+                renderBlogTable();
+            } catch (error) {
+                alert('Error importing data: ' + error.message);
+            }
+        };
+        reader.readAsText(file);
+        input.value = '';
+    };
+</script>
+</body>
+</html>

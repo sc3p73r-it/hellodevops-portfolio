@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AWS DevOps | HelloDevOps</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+</head>
+<body class="home-page">
+
+<!-- Preloader -->
+<div id="preloader">
+  <div class="spinner"></div>
+</div>
+
+<nav class="navbar navbar-dark fixed-top navbar-on-scroll">
+  <div class="container">
+    <a class="navbar-brand fw-bold d-flex flex-column" href="index.html" style="line-height: 1.2;">
+      <span>← Hello<span class="text-warning">DevOps</span></span>
+      <span class="small text-white-50" style="font-size: 0.6rem; font-weight: normal;">Part of Vital Tech Myanmar</span>
+    </a>
+    <div class="d-flex align-items-center">
+      <i class="bi bi-moon-stars-fill me-2" id="theme-toggle-icon"></i>
+      <div class="form-check form-switch">
+        <input class="form-check-input" type="checkbox" role="switch" id="theme-toggle">
+      </div>
+      <form class="d-flex ms-3" role="search" id="global-search-form">
+        <input class="form-control form-control-sm" type="search" placeholder="Search..." aria-label="Search" id="global-search-input">
+      </form>
+    </div>
+    <ul class="navbar-nav ms-auto mb-2 mb-lg-0 d-none d-lg-flex">
+        <li class="nav-item"><a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#contactModal">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<section class="py-5 fade-in-section">
+  <div class="container">
+    <h1 class="fw-bold">AWS DevOps</h1>
+    <p class="lead text-white-50">Implement CI/CD, automation, and infrastructure as code on the AWS cloud.</p>
+  </div>
+</section>
+
+<!-- What You'll Learn & Course Details -->
+<section class="py-5 fade-in-section">
+  <div class="container">
+    <div class="row g-5">
+      <div class="col-lg-8">
+        <h2 class="fw-bold mb-4">What You'll Learn</h2>
+        <div class="row g-4">
+          <div class="col-md-6">
+            <div class="d-flex">
+              <i class="devicon-amazonwebservices-plain-wordmark fs-2 colored me-3"></i>
+              <div>
+                <h5 class="fw-bold">Deploy Scalable Infrastructure</h5>
+                <p class="text-white-50">Learn to provision and manage cloud resources on AWS using Infrastructure as Code.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="d-flex">
+              <i class="devicon-jenkins-plain fs-2 colored me-3"></i>
+              <div>
+                <h5 class="fw-bold">Automate Everything</h5>
+                <p class="text-white-50">Build robust CI/CD pipelines to automate testing and deployment from Git to production.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="d-flex">
+              <i class="devicon-docker-plain fs-2 colored me-3"></i>
+              <div>
+                <h5 class="fw-bold">Master Containerization</h5>
+                <p class="text-white-50">Package applications with Docker and orchestrate them at scale using Kubernetes (EKS).</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="d-flex">
+              <i class="devicon-prometheus-original fs-2 colored me-3"></i>
+              <div>
+                <h5 class="fw-bold">Implement Monitoring</h5>
+                <p class="text-white-50">Use CloudWatch and Prometheus to monitor application performance and ensure reliability.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="card shadow position-sticky" style="top: 7rem;">
+          <div class="card-body p-4">
+            <h5 class="card-title text-warning">Course Details</h5>
+            <p class="text-white-50"><strong>Duration:</strong> 8 Weeks</p>
+            <p class="text-white-50"><strong>Mode:</strong> Online / Live Sessions</p>
+            <p class="text-white-50"><strong>Last Updated:</strong> Nov 2023</p>
+            <p class="text-white-50"><strong>Level:</strong> Intermediate to Advanced</p>
+            <p class="text-white-50 mb-4"><strong>Prerequisites:</strong> AWS Basics, Linux, CI/CD Concepts</p>
+            <a href="#" class="btn btn-outline-warning w-100 mb-2" data-bs-toggle="modal" data-bs-target="#syllabusModal"><i class="bi bi-file-earmark-pdf me-2"></i>Download Syllabus</a>
+            <a href="#" class="btn btn-warning w-100">Enroll Now</a>
+            <a href="#" class="btn btn-outline-warning w-100 mt-2" data-bs-toggle="modal" data-bs-target="#shareModal"><i class="bi bi-share me-2"></i>Share Course</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Who is this course for? -->
+<section class="py-5 fade-in-section">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="fw-bold">Who is this course for?</h2>
+            <p class="lead text-white-50">This course is designed for individuals who want to build a career in cloud and DevOps.</p>
+        </div>
+        <div class="row g-4 justify-content-center">
+            <div class="col-md-4">
+                <div class="card h-100 text-center p-3">
+                    <div class="card-body">
+                        <i class="bi bi-person-workspace fs-1 text-warning"></i>
+                        <h5 class="fw-bold mt-3 text-warning">Aspiring DevOps Engineers</h5>
+                        <p class="text-white-50">Individuals looking to start a career in DevOps and cloud automation.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card h-100 text-center p-3">
+                    <div class="card-body">
+                        <i class="bi bi-hdd-stack-fill fs-1 text-warning"></i>
+                        <h5 class="fw-bold mt-3 text-warning">System Administrators</h5>
+                        <p class="text-white-50">Sysadmins wanting to transition to an infrastructure-as-code and automation mindset.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card h-100 text-center p-3">
+                    <div class="card-body">
+                        <i class="bi bi-code-slash fs-1 text-warning"></i>
+                        <h5 class="fw-bold mt-3 text-warning">Software Developers</h5>
+                        <p class="text-white-50">Developers who want to understand the full application lifecycle and manage infrastructure.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Tools You'll Master -->
+<section class="py-5 bg-lighter fade-in-section">
+    <div class="container text-center">
+        <h2 class="fw-bold">Tools You'll Master</h2>
+        <div class="d-flex flex-wrap justify-content-center align-items-center mt-4 tool-icons">
+            <i class="devicon-git-plain colored fs-1 mx-3 my-2" title="Git"></i>
+            <i class="devicon-github-original colored fs-1 mx-3 my-2" title="GitHub"></i>
+            <i class="devicon-docker-plain colored fs-1 mx-3 my-2" title="Docker"></i>
+            <i class="devicon-kubernetes-plain colored fs-1 mx-3 my-2" title="Kubernetes"></i>
+            <i class="devicon-amazonwebservices-plain-wordmark colored fs-1 mx-3 my-2" title="AWS"></i>
+            <i class="devicon-terraform-plain colored fs-1 mx-3 my-2" title="Terraform"></i>
+            <i class="devicon-prometheus-original colored fs-1 mx-3 my-2" title="Prometheus"></i>
+        </div>
+    </div>
+</section>
+
+<!-- Detailed Curriculum -->
+<section class="py-5 fade-in-section">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="fw-bold">Week-by-Week Curriculum</h2>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="accordion" id="curriculumAccordion">
+                    <div class="accordion-item mb-3">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#week-1">Week 1-2: AWS & IaC Foundations</button>
+                        </h2>
+                        <div id="week-1" class="accordion-collapse collapse show" data-bs-parent="#curriculumAccordion">
+                            <div class="accordion-body text-white-50">IAM & Security, VPC Networking, EC2 instances, and provisioning with Terraform.</div>
+                        </div>
+                    </div>
+                    <div class="accordion-item mb-3">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#week-3">Week 3-4: CI/CD Pipelines</button>
+                        </h2>
+                        <div id="week-3" class="accordion-collapse collapse" data-bs-parent="#curriculumAccordion">
+                            <div class="accordion-body text-white-50">Automating builds, tests, and deployments using AWS CodePipeline, CodeBuild, and CodeDeploy.</div>
+                        </div>
+                    </div>
+                    <div class="accordion-item mb-3">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#week-5">Week 5-6: Containerization</button>
+                        </h2>
+                        <div id="week-5" class="accordion-collapse collapse" data-bs-parent="#curriculumAccordion">
+                            <div class="accordion-body text-white-50">Docker fundamentals, managing containers with ECS, and an introduction to Kubernetes on AWS (EKS).</div>
+                        </div>
+                    </div>
+                    <div class="accordion-item mb-3">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#week-7">Week 7-8: Monitoring & Final Project</button>
+                        </h2>
+                        <div id="week-7" class="accordion-collapse collapse" data-bs-parent="#curriculumAccordion">
+                            <div class="accordion-body text-white-50">Implement monitoring with CloudWatch, logging with CloudTrail, and deploy a full-stack application as a final project.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Instructor Spotlight -->
+<section class="py-5 bg-lighter fade-in-section">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8 text-center">
+                <h2 class="fw-bold">Meet Your Instructor</h2>
+                <img src="src/photo/howy.png" class="rounded-circle my-4" alt="Htet Oo Wai Yan" width="150" height="150">
+                <h4 class="text-warning">Htet Oo Wai Yan</h4>
+                <p class="text-white-50 fw-bold">Lead Instructor & System Engineer</p>
+                <p class="text-white-50">With over 6 years of experience in linux system and automation, Htet is an expert in Docker, Kubernetes AWS, and building scalable CI/CD pipelines. He is passionate about sharing his real-world knowledge to help students succeed.</p>
+                <a href="authors.html#wai-yan" class="btn btn-outline-warning mt-2">View Profile</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Project Showcase -->
+<section class="py-5 fade-in-section">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="fw-bold">Student Projects Showcase</h2>
+            <p class="lead text-white-50">See what our students have built.</p>
+        </div>
+        <div class="row g-4">
+            <div class="col-md-6">
+                <div class="card h-100">
+                    <div class="card-body p-4">
+                        <h5 class="card-title text-warning">Automated CI/CD Pipeline for a Node.js App</h5>
+                        <p class="card-text text-white-50">A student project showcasing a complete pipeline from a Git commit on GitHub to a deployment on AWS EC2, using CodePipeline, CodeBuild, and CodeDeploy.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card h-100">
+                    <div class="card-body p-4">
+                        <h5 class="card-title text-warning">Terraform Module for a Scalable VPC</h5>
+                        <p class="card-text text-white-50">This project features a reusable Terraform module to create a production-ready Virtual Private Cloud (VPC) with public/private subnets and security groups.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Course-Specific Testimonial -->
+<section class="py-5 bg-lighter fade-in-section">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8 text-center">
+                <i class="bi bi-quote fs-1 text-warning"></i>
+                <blockquote class="blockquote fs-4 my-4 fst-italic">
+                    "This was the best investment I've made in my career. The hands-on labs for AWS and Terraform were incredibly practical and helped me secure a Senior DevOps role within two months of finishing the course."
+                </blockquote>
+                <div class="d-flex align-items-center justify-content-center">
+                    <img src="https://i.pravatar.cc/150?u=john-doe" class="rounded-circle me-3" alt="John Doe" width="60" height="60">
+                    <div>
+                        <h6 class="fw-bold mb-0">John Doe</h6>
+                        <small class="text-white-50">Senior DevOps Engineer @ TechCorp</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ -->
+<section class="py-5 fade-in-section">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="fw-bold">Frequently Asked Questions</h2>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="accordion" id="courseFaqAccordion">
+                    <div class="accordion-item mb-3">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq-1">
+                                What if I don't have an AWS account?
+                            </button>
+                        </h2>
+                        <div id="faq-1" class="accordion-collapse collapse show" data-bs-parent="#courseFaqAccordion">
+                            <div class="accordion-body text-white-50">
+                                No problem! The first module of the course will guide you step-by-step on how to create a new AWS account and set it up securely. We will also be using the AWS Free Tier for most of the labs to minimize costs.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item mb-3">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-2">
+                                Are the live sessions recorded?
+                            </button>
+                        </h2>
+                        <div id="faq-2" class="accordion-collapse collapse" data-bs-parent="#courseFaqAccordion">
+                            <div class="accordion-body text-white-50">
+                                Yes, all live sessions are recorded and will be made available to you within 24 hours. You will have lifetime access to these recordings, so you can review them anytime.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-3">
+                                How much time should I dedicate to this course per week?
+                            </button>
+                        </h2>
+                        <div id="faq-3" class="accordion-collapse collapse" data-bs-parent="#courseFaqAccordion">
+                            <div class="accordion-body text-white-50">
+                                We recommend dedicating 8-10 hours per week. This includes attending live sessions, watching recordings, and completing the hands-on labs and assignments.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer class="py-5">
+  <div class="container">
+    <div class="row justify-content-center text-center">
+      <div class="col-lg-6">
+        <h4 class="fw-bold">Subscribe to our Newsletter</h4>
+        <p class="text-white-50">Get the latest articles and course updates delivered to your inbox.</p>
+        <form id="newsletter-form" class="mt-4">
+          <div class="input-group mb-3">
+            <input type="email" class="form-control" placeholder="Enter your email" required>
+            <button class="btn btn-warning" type="submit">Subscribe</button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <hr class="my-4" style="border-color: var(--border-color);">
+    <div class="d-flex flex-column flex-sm-row justify-content-between align-items-center">
+        <p class="mb-3 mb-sm-0 text-white-50 small">© 2026 HelloDevOps. Part of <a href="https://vitaltechmyanmar.com" class="text-white-50 text-decoration-none">Vital Tech Myanmar</a>. All Rights Reserved.</p>
+        <div class="d-flex align-items-center">
+            <a href="terms-of-service.html" class="text-white-50 text-decoration-none small me-3">Terms of Service</a>
+            <a href="privacy-policy.html" class="text-white-50 text-decoration-none small me-4">Privacy Policy</a>
+            <a href="#" class="text-white-50 me-3" title="Twitter"><i class="bi bi-twitter-x fs-5"></i></a>
+            <a href="#" class="text-white-50 me-3" title="LinkedIn"><i class="bi bi-linkedin fs-5"></i></a>
+            <a href="#" class="text-white-50" title="GitHub"><i class="bi bi-github fs-5"></i></a>
+        </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Syllabus Modal -->
+<div class="modal fade" id="syllabusModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content bg-dark text-light border-secondary">
+      <div class="modal-header border-secondary">
+        <h5 class="modal-title">Syllabus Downloaded</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body text-center py-4">
+        <i class="bi bi-check-circle-fill text-success display-1 mb-3"></i>
+        <h4 class="fw-bold">Success!</h4>
+        <p class="text-white-50 mb-4">The detailed course syllabus has been saved to your device.</p>
+        <button type="button" class="btn btn-outline-light w-100" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Share Modal -->
+<div class="modal fade" id="shareModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content bg-dark text-light border-secondary">
+      <div class="modal-header border-secondary">
+        <h5 class="modal-title">Share this Course</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body text-center py-4">
+        <p class="text-white-50 mb-4">Spread the word about this course!</p>
+        <div class="d-flex justify-content-center gap-3">
+          <a href="#" class="btn btn-outline-light rounded-circle p-3" id="share-course-twitter" title="Share on Twitter"><i class="bi bi-twitter-x fs-4"></i></a>
+          <a href="#" class="btn btn-outline-light rounded-circle p-3" id="share-course-linkedin" title="Share on LinkedIn"><i class="bi bi-linkedin fs-4"></i></a>
+          <a href="#" class="btn btn-outline-light rounded-circle p-3" id="share-course-facebook" title="Share on Facebook"><i class="bi bi-facebook fs-4"></i></a>
+          <button class="btn btn-outline-light rounded-circle p-3" id="copyCourseLink" title="Copy Link"><i class="bi bi-link-45deg fs-4"></i></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Contact Modal -->
+<div class="modal fade" id="contactModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content bg-dark text-light border-secondary">
+      <div class="modal-header border-secondary">
+        <h5 class="modal-title">Contact Us</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form id="modal-contact-form">
+          <div class="mb-3">
+            <label class="form-label">Name</label>
+            <input type="text" class="form-control" required>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Email</label>
+            <input type="email" class="form-control" required>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Message</label>
+            <textarea class="form-control" rows="4" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-warning w-100">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Cookie Consent Banner -->
+<div class="cookie-banner" id="cookie-banner">
+  <p class="mb-0 text-white-50 small">We use cookies to improve your experience. By using our site, you agree to our <a href="privacy-policy.html" class="text-warning">Privacy Policy</a>.</p>
+  <button class="btn btn-warning btn-sm" id="accept-cookies">Accept</button>
+</div>
+
+<!-- Back to Top Button -->
+<a href="#" class="back-to-top btn btn-warning rounded-circle"><i class="bi bi-arrow-up"></i></a>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="scripts.js"></script>
+</body>
+</html>

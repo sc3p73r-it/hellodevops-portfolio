@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Resources | HelloDevOps</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+</head>
+<body class="home-page">
+
+<!-- Preloader -->
+<div id="preloader">
+  <div class="spinner"></div>
+</div>
+
+<nav class="navbar navbar-dark fixed-top navbar-on-scroll">
+  <div class="container">
+    <a class="navbar-brand fw-bold d-flex flex-column" href="index.html" style="line-height: 1.2;">
+      <span>← Hello<span class="text-warning">DevOps</span></span>
+      <span class="small text-white-50" style="font-size: 0.6rem; font-weight: normal;">Part of Vital Tech Myanmar</span>
+    </a>
+    <div class="d-flex align-items-center">
+      <i class="bi bi-moon-stars-fill me-2" id="theme-toggle-icon"></i>
+      <div class="form-check form-switch">
+        <input class="form-check-input" type="checkbox" role="switch" id="theme-toggle">
+      </div>
+      <form class="d-flex ms-3" role="search" id="global-search-form">
+        <input class="form-control form-control-sm" type="search" placeholder="Search..." aria-label="Search" id="global-search-input">
+      </form>
+    </div>
+    <ul class="navbar-nav ms-auto mb-2 mb-lg-0 d-none d-lg-flex">
+        <li class="nav-item"><a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#contactModal">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<section class="py-5 text-center fade-in-section">
+  <div class="container">
+    <h1 class="display-4 fw-bold">Free Resources</h1>
+    <p class="lead text-white-50 mt-3">Download cheatsheets and guides to accelerate your learning.</p>
+  </div>
+</section>
+
+<section class="py-5 fade-in-section">
+  <div class="container">
+    <div class="row justify-content-end mb-4">
+      <div class="col-md-3">
+        <select class="form-select" id="resource-sort">
+          <option value="popular">Sort by: Most Popular</option>
+          <option value="newest">Sort by: Newest</option>
+        </select>
+      </div>
+    </div>
+    <div class="row g-4 justify-content-center" id="resources-container">
+      <!-- Linux Cheatsheet -->
+      <div class="col-md-6 col-lg-4 resource-item" data-downloads="2500" data-date="2023-10-01">
+        <div class="card h-100 shadow border-0">
+          <span class="badge bg-secondary position-absolute top-0 end-0 m-3"><i class="bi bi-download me-1"></i> 2.5k</span>
+          <div class="card-body p-4 text-center">
+            <i class="devicon-linux-plain display-1 colored mb-3"></i>
+            <h4 class="card-title fw-bold">Linux Cheatsheet</h4>
+            <p class="card-text text-white-50 mb-4">Essential commands for system administration, file management, and permissions.</p>
+            <a href="#" class="btn btn-outline-warning w-100"><i class="bi bi-download me-2"></i>Download PDF</a>
+          </div>
+        </div>
+      </div>
+      <!-- Docker Cheatsheet -->
+      <div class="col-md-6 col-lg-4 resource-item" data-downloads="1800" data-date="2023-11-15">
+        <div class="card h-100 shadow border-0">
+          <span class="badge bg-secondary position-absolute top-0 end-0 m-3"><i class="bi bi-download me-1"></i> 1.8k</span>
+          <div class="card-body p-4 text-center">
+            <i class="devicon-docker-plain display-1 colored mb-3"></i>
+            <h4 class="card-title fw-bold">Docker Cheatsheet</h4>
+            <p class="card-text text-white-50 mb-4">Quick reference for Docker CLI, Dockerfile instructions, and Docker Compose.</p>
+            <a href="#" class="btn btn-outline-warning w-100"><i class="bi bi-download me-2"></i>Download PDF</a>
+          </div>
+        </div>
+      </div>
+      <!-- Git Cheatsheet (Bonus) -->
+      <div class="col-md-6 col-lg-4 resource-item" data-downloads="3100" data-date="2023-09-20">
+        <div class="card h-100 shadow border-0">
+          <span class="badge bg-secondary position-absolute top-0 end-0 m-3"><i class="bi bi-download me-1"></i> 3.1k</span>
+          <div class="card-body p-4 text-center">
+            <i class="devicon-git-plain display-1 colored mb-3"></i>
+            <h4 class="card-title fw-bold">Git Cheatsheet</h4>
+            <p class="card-text text-white-50 mb-4">Common Git commands for version control, branching, and merging.</p>
+            <a href="#" class="btn btn-outline-warning w-100"><i class="bi bi-download me-2"></i>Download PDF</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="py-5">
+  <div class="container">
+    <div class="row justify-content-center text-center">
+      <div class="col-lg-6">
+        <h4 class="fw-bold">Subscribe to our Newsletter</h4>
+        <p class="text-white-50">Get the latest articles and course updates delivered to your inbox.</p>
+        <form id="newsletter-form" class="mt-4">
+          <div class="input-group mb-3">
+            <input type="email" class="form-control" placeholder="Enter your email" required>
+            <button class="btn btn-warning" type="submit">Subscribe</button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <hr class="my-4" style="border-color: var(--border-color);">
+    <div class="d-flex flex-column flex-sm-row justify-content-between align-items-center">
+        <p class="mb-3 mb-sm-0 text-white-50 small">© 2026 HelloDevOps. Part of <a href="https://vitaltechmyanmar.com" class="text-white-50 text-decoration-none">Vital Tech Myanmar</a>. All Rights Reserved.</p>
+        <div class="d-flex align-items-center">
+            <a href="terms-of-service.html" class="text-white-50 text-decoration-none small me-3">Terms of Service</a>
+            <a href="privacy-policy.html" class="text-white-50 text-decoration-none small me-4">Privacy Policy</a>
+            <a href="#" class="text-white-50 me-3" title="Twitter"><i class="bi bi-twitter-x fs-5"></i></a>
+            <a href="#" class="text-white-50 me-3" title="LinkedIn"><i class="bi bi-linkedin fs-5"></i></a>
+            <a href="#" class="text-white-50" title="GitHub"><i class="bi bi-github fs-5"></i></a>
+        </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Contact Modal -->
+<div class="modal fade" id="contactModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content bg-dark text-light border-secondary">
+      <div class="modal-header border-secondary">
+        <h5 class="modal-title">Contact Us</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form id="modal-contact-form">
+          <div class="mb-3">
+            <label class="form-label">Name</label>
+            <input type="text" class="form-control" required>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Email</label>
+            <input type="email" class="form-control" required>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Message</label>
+            <textarea class="form-control" rows="4" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-warning w-100">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Cookie Consent Banner -->
+<div class="cookie-banner" id="cookie-banner">
+  <p class="mb-0 text-white-50 small">We use cookies to improve your experience. By using our site, you agree to our <a href="privacy-policy.html" class="text-warning">Privacy Policy</a>.</p>
+  <button class="btn btn-warning btn-sm" id="accept-cookies">Accept</button>
+</div>
+
+<!-- Back to Top Button -->
+<a href="#" class="back-to-top btn btn-warning rounded-circle"><i class="bi bi-arrow-up"></i></a>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="scripts.js"></script>
+</body>
+</html>
